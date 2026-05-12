@@ -1,7 +1,7 @@
 name: Free Lite setup question
 description: Ask a public setup question about the free workflow. Do not share secrets or private data.
 title: "[Free Lite setup]: "
-labels: ["question", "free-lite"]
+labels: ["question", "free-lite", "setup friction"]
 body:
   - type: markdown
     attributes:

@@ -1,0 +1,46 @@
+name: Free Lite feedback or integration request
+description: Share public-safe feedback on output format or next integration priority.
+title: "[Free Lite feedback]: "
+labels: ["free-lite", "sample output request", "integration request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing Free Lite. Please keep this issue public-safe.
+
+        **Do not post:** API keys, tokens, private repository URLs, customer data, internal logs, production credentials, payment details, or confidential screenshots.
+  - type: dropdown
+    id: feedback-type
+    attributes:
+      label: Feedback type
+      options:
+        - Sample output format request
+        - Slack integration request
+        - Discord integration request
+        - Notion integration request
+        - Claude narrative summary request
+        - Other public-safe feedback
+    validations:
+      required: true
+  - type: textarea
+    id: what-would-help
+    attributes:
+      label: What would make this more useful?
+      description: Describe the desired output field, workflow behavior, or integration using public/sanitized examples only.
+      placeholder: "Example: Add a 'stale PRs' section with PR number, title, and days since last update."
+    validations:
+      required: true
+  - type: textarea
+    id: current-workaround
+    attributes:
+      label: Current workaround, if any
+      placeholder: "Example: I copy the markdown into Slack and manually add next-step questions."
+    validations:
+      required: false
+  - type: checkboxes
+    id: safety-confirmation
+    attributes:
+      label: Public-safety confirmation
+      options:
+        - label: I removed tokens, private repo names, customer data, internal logs, and confidential screenshots.
+          required: true

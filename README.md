@@ -73,6 +73,7 @@ If you want the full template pack, customization, or a fixed-scope AI workflow 
 - **Template pack / customization inquiry:** https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=workflow-pack-inquiry.yml
 - **Workflow audit / pilot inquiry:** https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=audit-pilot-inquiry.yml
 - **Free Lite setup question:** https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=free-lite-setup.yml
+- **Free Lite feedback / integration request:** https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=free-lite-feedback.yml
 
 ## Public issue safety
 
