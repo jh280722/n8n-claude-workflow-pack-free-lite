@@ -4,6 +4,29 @@ A free, importable n8n workflow that generates a Markdown weekly snapshot for a 
 
 This is the public preview for a larger operator-grade workflow pack for engineering and ops teams using n8n, GitHub, Slack/Notion, and Claude-style review workflows.
 
+## What this free workflow helps you test
+
+This Free Lite workflow turns public or sanitized GitHub repository activity into a weekly Markdown snapshot you can review before wiring anything into Slack, Discord, Notion, or a Claude-powered narrative workflow.
+
+It is useful if you want to:
+
+- sanity-check weekly repo activity before a team update;
+- evaluate n8n import/setup friction with a small workflow;
+- produce a reviewable summary of recent PRs, issues, stale items, and follow-up questions;
+- test an approval-first automation pattern before adding private workspace data.
+
+### Safety boundary
+
+Start with a public repo or sanitized sample payload. Do **not** paste tokens, private repository URLs, customer data, production logs, or proprietary workflow exports into public issues or screenshots.
+
+If you try it and hit setup friction, open a public issue with:
+
+1. your n8n version,
+2. whether import succeeded,
+3. which node failed,
+4. sanitized error text,
+5. whether you tested with a public repo or redacted sample data.
+
 ## What you get for free
 
 - `workflows/free-lite-github-weekly-snapshot.json`
@@ -58,6 +81,19 @@ All issue templates are designed for sanitized, public context only. Do not post
 ## Support boundary
 
 This free repo is a public preview and does not include managed implementation support. Buyers/users are responsible for their own n8n instance, API credentials, workspace permissions, and security review. Custom integration work should be scoped separately.
+
+## Feedback requested
+
+I am validating whether this small workflow is useful before adding heavier Claude/Slack/Notion automations.
+
+Helpful feedback:
+
+- Did the workflow import cleanly?
+- Which setup step was unclear?
+- Is the weekly summary format useful for maintainers or small teams?
+- Which integration would be most useful next: Slack, Discord, Notion, or a Claude narrative summary?
+
+Please keep feedback public-safe: no tokens, private repo names, customer data, internal incidents, or production logs.
 
 ## License
 
