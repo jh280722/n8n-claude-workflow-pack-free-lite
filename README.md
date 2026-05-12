@@ -33,6 +33,7 @@ If you try it and hit setup friction, open a public issue with:
 - Manual trigger + optional Friday 5pm schedule trigger
 - Public GitHub API fetch for commits, merged PRs, and closed issues
 - Markdown output that can be copied into Slack, Notion, Linear, or a weekly status doc
+- Import checklist and public-safe troubleshooting guide: `docs/free-lite-import-checklist.md`
 - No Claude/Anthropic API key required
 - No Slack webhook required
 - No private repo access required by default
@@ -45,6 +46,7 @@ If you try it and hit setup friction, open a public issue with:
    - `LOOKBACK_DAYS=7`
    - `GITHUB_TOKEN=...` — optional, only for higher rate limits or repos you are authorized to inspect
 3. Run the workflow manually and inspect the `markdown` field in the final node.
+4. If import or execution fails, use the 5-minute checklist in `docs/free-lite-import-checklist.md` before opening a public issue.
 
 ## Safety defaults
 
