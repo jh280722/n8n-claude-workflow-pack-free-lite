@@ -55,6 +55,16 @@ If you try it and hit setup friction, open a public issue with:
 - It ships with placeholders only; do not paste secrets into workflow code.
 - Review permissions and API credentials before adapting it for private repositories.
 
+## Static validation
+
+Run the included public-safety validator before sharing a modified workflow:
+
+```bash
+python3 scripts/validate_free_lite.py
+```
+
+The validator checks that the workflow JSON is parseable, still includes the expected read-only GitHub snapshot nodes, keeps `GITHUB_TOKEN` optional, and does not contain common posting/mutating integrations or secret-like markers.
+
 ## Full pack / paid help
 
 The broader local pack currently contains additional workflows and support collateral for:
