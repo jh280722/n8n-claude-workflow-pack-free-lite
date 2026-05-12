@@ -1,0 +1,41 @@
+name: Free Lite setup question
+description: Ask a public setup question about the free workflow. Do not share secrets or private data.
+title: "[Free Lite setup]: "
+labels: ["question", "free-lite"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Public setup questions are welcome.
+
+        **Do not post:** API keys, tokens, private repository URLs, customer data, internal logs with secrets, or screenshots that reveal credentials.
+  - type: input
+    id: n8n-version
+    attributes:
+      label: n8n version
+      placeholder: "Example: 1.92.0 self-hosted, n8n Cloud, etc."
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the setup issue using sanitized details.
+      placeholder: "Example: Import succeeds, but the final markdown field is empty for owner/repo."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      placeholder: "Example: Markdown with commit/PR/issue counts for the last 7 days."
+    validations:
+      required: true
+  - type: textarea
+    id: sanitized-config
+    attributes:
+      label: Sanitized configuration
+      description: Share only safe values. Replace private names with owner/repo placeholders.
+      placeholder: "GITHUB_REPO=public-owner/public-repo; LOOKBACK_DAYS=7; no token pasted."
+    validations:
+      required: false

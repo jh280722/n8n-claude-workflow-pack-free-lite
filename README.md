@@ -49,6 +49,11 @@ If you want the full template pack, customization, or a fixed-scope AI workflow 
 
 - **Template pack / customization inquiry:** https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=workflow-pack-inquiry.yml
 - **Workflow audit / pilot inquiry:** https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=audit-pilot-inquiry.yml
+- **Free Lite setup question:** https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=free-lite-setup.yml
+
+## Public issue safety
+
+All issue templates are designed for sanitized, public context only. Do not post API keys, private repository URLs, customer data, internal logs with secrets, procurement/legal/KYC details, or production credentials. If a paid engagement is scoped later, sensitive details should move to an approved private channel before implementation work begins.
 
 ## Support boundary
 

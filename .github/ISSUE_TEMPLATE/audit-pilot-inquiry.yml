@@ -1,41 +1,62 @@
-name: AI workflow audit / pilot inquiry
-description: Request a scoped AI workflow audit or pilot using sanitized information only.
-title: "Audit/pilot inquiry: "
+name: Workflow audit / pilot inquiry
+description: Ask about a fixed-scope AI workflow audit or narrow implementation pilot using sanitized context only.
+title: "[Audit/pilot inquiry]: "
 labels: ["inquiry", "audit-pilot"]
 body:
   - type: markdown
     attributes:
       value: |
-        Please do not share credentials, private repo links, customer records, internal Slack exports, or sensitive business data in a public issue. Start with a sanitized description only.
+        Use this for a public, sanitized first pass only.
+
+        **Do not post:** API keys, tokens, private repo links, customer data, internal security incidents, workplace confidential data, legal/procurement details, bank/Stripe/tax/KYC details, or production credentials.
   - type: dropdown
-    id: desired_outcome
+    id: request-type
     attributes:
-      label: Desired outcome
+      label: Request type
       options:
-        - 3-business-day AI workflow audit
+        - AI workflow audit beta
         - 2-week implementation pilot
-        - ROI / automation opportunity triage
-        - Security / approval-gate review for existing automation
+        - Audit first, then decide
         - Not sure yet
     validations:
       required: true
   - type: textarea
-    id: current_process
+    id: team-context
     attributes:
-      label: Current process, sanitized
-      description: What repeats today? Which tools are involved? Keep it high-level.
-      placeholder: "Example: weekly status reporting across GitHub issues, PRs, and Slack updates..."
+      label: Team/context snapshot
+      description: Keep this high-level and sanitized.
+      placeholder: "Example: 8-person product team; GitHub + Slack + Notion; weekly release notes and PR follow-up are manual."
     validations:
       required: true
   - type: textarea
-    id: constraints
+    id: manual-process
     attributes:
-      label: Constraints and boundaries
-      placeholder: "Example: no production writes, must support human approval, no private data in prompts..."
-  - type: checkboxes
-    id: confirmation
+      label: Manual process to audit
+      placeholder: "Example: Review merged PRs, identify risky changes, write a weekly ops brief, and create follow-up tasks."
+    validations:
+      required: true
+  - type: dropdown
+    id: automation-risk
     attributes:
-      label: Safety confirmation
+      label: Preferred automation risk level
       options:
-        - label: I understand this public issue is for sanitized scoping only and does not establish a contract or require sharing secrets.
-          required: true
+        - Draft-only recommendations; no writes to tools
+        - Human-approved posting to Slack/Notion
+        - Human-approved GitHub comments/issues
+        - Need help choosing a safe boundary
+    validations:
+      required: true
+  - type: textarea
+    id: success-metric
+    attributes:
+      label: Success metric
+      placeholder: "Example: save 2 hours/week, reduce missed follow-ups, standardize weekly stakeholder update."
+    validations:
+      required: true
+  - type: textarea
+    id: blockers
+    attributes:
+      label: Known blockers or requirements
+      placeholder: "Example: must self-host n8n; cannot share private data publicly; security review required before credentials."
+    validations:
+      required: false
