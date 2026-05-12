@@ -1,0 +1,36 @@
+name: Workflow pack / customization inquiry
+description: Ask about the full workflow pack or paid customization without sharing private credentials.
+title: "Workflow pack inquiry: "
+labels: ["inquiry", "workflow-pack"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your interest. Please keep this public issue sanitized: do not paste secrets, private repo data, customer data, API keys, or personal financial information.
+  - type: dropdown
+    id: interest
+    attributes:
+      label: What are you interested in?
+      options:
+        - Starter template pack
+        - Pro template pack
+        - Customizing the free workflow
+        - Customizing a private n8n workflow
+        - Not sure yet
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Sanitized use case
+      description: Describe the workflow you want in general terms. Do not include secrets or private data.
+      placeholder: "Example: We want a weekly GitHub + Slack summary for a small engineering team..."
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I did not include secrets, API keys, private customer data, or sensitive workplace information.
+          required: true

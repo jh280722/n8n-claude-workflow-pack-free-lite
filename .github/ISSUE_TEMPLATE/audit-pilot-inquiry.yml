@@ -1,0 +1,41 @@
+name: AI workflow audit / pilot inquiry
+description: Request a scoped AI workflow audit or pilot using sanitized information only.
+title: "Audit/pilot inquiry: "
+labels: ["inquiry", "audit-pilot"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do not share credentials, private repo links, customer records, internal Slack exports, or sensitive business data in a public issue. Start with a sanitized description only.
+  - type: dropdown
+    id: desired_outcome
+    attributes:
+      label: Desired outcome
+      options:
+        - 3-business-day AI workflow audit
+        - 2-week implementation pilot
+        - ROI / automation opportunity triage
+        - Security / approval-gate review for existing automation
+        - Not sure yet
+    validations:
+      required: true
+  - type: textarea
+    id: current_process
+    attributes:
+      label: Current process, sanitized
+      description: What repeats today? Which tools are involved? Keep it high-level.
+      placeholder: "Example: weekly status reporting across GitHub issues, PRs, and Slack updates..."
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints and boundaries
+      placeholder: "Example: no production writes, must support human approval, no private data in prompts..."
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I understand this public issue is for sanitized scoping only and does not establish a contract or require sharing secrets.
+          required: true

@@ -1,0 +1,121 @@
+{
+  "name": "Free Lite - GitHub Weekly Snapshot",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "0b2c6a77-8a16-4cf4-9e43-9e0c33e4c901",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [-760, -80]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 17 * * 5"
+            }
+          ]
+        }
+      },
+      "id": "7e4eb44a-35ce-44cb-bd67-942decc8fef5",
+      "name": "Optional Friday 5pm Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [-760, 120]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "repo",
+              "name": "githubRepo",
+              "type": "string",
+              "value": "={{$env.GITHUB_REPO || 'n8n-io/n8n'}}"
+            },
+            {
+              "id": "days",
+              "name": "lookbackDays",
+              "type": "number",
+              "value": "={{$env.LOOKBACK_DAYS || 7}}"
+            },
+            {
+              "id": "token",
+              "name": "githubToken",
+              "type": "string",
+              "value": "={{$env.GITHUB_TOKEN || ''}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ebff2593-0b96-4d0b-8faa-363408f9b9ec",
+      "name": "Config - Public Repo Snapshot",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [-500, 20]
+    },
+    {
+      "parameters": {
+        "jsCode": "const cfg = $input.first().json;\nconst [owner, repo] = String(cfg.githubRepo || 'n8n-io/n8n').split('/');\nif (!owner || !repo) throw new Error('Set GITHUB_REPO as owner/repo');\nconst lookbackDays = Number(cfg.lookbackDays || 7);\nconst sinceDate = new Date(Date.now() - lookbackDays * 24 * 60 * 60 * 1000);\nconst since = sinceDate.toISOString();\nconst headers = {\n  Accept: 'application/vnd.github+json',\n  'User-Agent': 'n8n-free-lite-github-weekly-snapshot'\n};\nif (cfg.githubToken) headers.Authorization = `Bearer ${cfg.githubToken}`;\nasync function gh(path) {\n  const response = await fetch(`https://api.github.com/repos/${owner}/${repo}${path}`, { headers });\n  if (!response.ok) throw new Error(`GitHub ${path} failed: ${response.status} ${await response.text()}`);\n  return response.json();\n}\nconst commits = await gh(`/commits?since=${encodeURIComponent(since)}&per_page=30`);\nconst issues = await gh(`/issues?state=closed&since=${encodeURIComponent(since)}&per_page=30`);\nconst pulls = await gh(`/pulls?state=closed&sort=updated&direction=desc&per_page=30`);\nconst mergedPulls = pulls.filter(pr => pr.merged_at && new Date(pr.merged_at) >= sinceDate);\nconst issueOnly = issues.filter(item => !item.pull_request);\nconst lines = [];\nlines.push(`# ${owner}/${repo} weekly snapshot`);\nlines.push('');\nlines.push(`Lookback: last ${lookbackDays} days since ${since}`);\nlines.push('');\nlines.push('## Counts');\nlines.push(`- Commits: ${commits.length}`);\nlines.push(`- Merged PRs: ${mergedPulls.length}`);\nlines.push(`- Closed issues: ${issueOnly.length}`);\nlines.push('');\nlines.push('## Notable commits');\nfor (const commit of commits.slice(0, 10)) {\n  const title = commit.commit?.message?.split('\\n')[0] || 'Untitled commit';\n  const author = commit.commit?.author?.name || 'unknown';\n  lines.push(`- ${commit.sha.slice(0, 7)} ${title} — ${author}`);\n}\nif (!commits.length) lines.push('- None found.');\nlines.push('');\nlines.push('## Merged PRs');\nfor (const pr of mergedPulls.slice(0, 10)) lines.push(`- #${pr.number} ${pr.title}`);\nif (!mergedPulls.length) lines.push('- None found.');\nlines.push('');\nlines.push('## Closed issues');\nfor (const issue of issueOnly.slice(0, 10)) lines.push(`- #${issue.number} ${issue.title}`);\nif (!issueOnly.length) lines.push('- None found.');\nlines.push('');\nlines.push('---');\nlines.push('Free lite workflow: no Claude API key and no Slack webhook required. Upgrade path: feed this snapshot into the full Claude weekly narrative workflow.');\nreturn [{ json: { githubRepo: `${owner}/${repo}`, since, counts: { commits: commits.length, mergedPulls: mergedPulls.length, closedIssues: issueOnly.length }, markdown: lines.join('\\n') } }];"
+      },
+      "id": "c7baf354-a0e5-4afd-b60f-27807ef68071",
+      "name": "Fetch GitHub Activity and Build Markdown",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-220, 20]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "markdown",
+              "name": "markdown",
+              "type": "string",
+              "value": "={{$json.markdown}}"
+            },
+            {
+              "id": "upgrade_note",
+              "name": "upgradeNote",
+              "type": "string",
+              "value": "Full pack adds Claude narrative summaries, Slack delivery, PR risk digests, meeting action extraction, and security docs."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fd2d0e53-e7fa-4cb2-b841-218e11ff3ac1",
+      "name": "Output Markdown Snapshot",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [80, 20]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [[{"node": "Config - Public Repo Snapshot", "type": "main", "index": 0}]]
+    },
+    "Optional Friday 5pm Trigger": {
+      "main": [[{"node": "Config - Public Repo Snapshot", "type": "main", "index": 0}]]
+    },
+    "Config - Public Repo Snapshot": {
+      "main": [[{"node": "Fetch GitHub Activity and Build Markdown", "type": "main", "index": 0}]]
+    },
+    "Fetch GitHub Activity and Build Markdown": {
+      "main": [[{"node": "Output Markdown Snapshot", "type": "main", "index": 0}]]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2026-05-12T11:17:00.000Z",
+  "versionId": "1"
+}

@@ -1,0 +1,59 @@
+# n8n + Claude Workflow Pack — Free Lite
+
+A free, importable n8n workflow that generates a Markdown weekly snapshot for a public GitHub repository.
+
+This is the public preview for a larger operator-grade workflow pack for engineering and ops teams using n8n, GitHub, Slack/Notion, and Claude-style review workflows.
+
+## What you get for free
+
+- `workflows/free-lite-github-weekly-snapshot.json`
+- Manual trigger + optional Friday 5pm schedule trigger
+- Public GitHub API fetch for commits, merged PRs, and closed issues
+- Markdown output that can be copied into Slack, Notion, Linear, or a weekly status doc
+- No Claude/Anthropic API key required
+- No Slack webhook required
+- No private repo access required by default
+
+## Quick start
+
+1. Import `workflows/free-lite-github-weekly-snapshot.json` into n8n.
+2. Optionally set environment variables:
+   - `GITHUB_REPO=owner/repo` — defaults to `n8n-io/n8n`
+   - `LOOKBACK_DAYS=7`
+   - `GITHUB_TOKEN=...` — optional, only for higher rate limits or repos you are authorized to inspect
+3. Run the workflow manually and inspect the `markdown` field in the final node.
+
+## Safety defaults
+
+- The workflow reads GitHub activity and produces draft Markdown only.
+- It does not post to Slack, write to Notion, merge PRs, comment on issues, or mutate repositories.
+- It ships with placeholders only; do not paste secrets into workflow code.
+- Review permissions and API credentials before adapting it for private repositories.
+
+## Full pack / paid help
+
+The broader local pack currently contains additional workflows and support collateral for:
+
+- Claude-powered weekly GitHub narrative summaries
+- PR review risk digests
+- Destructive command guard reports
+- Meeting transcript action extraction
+- Slack/Notion ops briefs
+- Knowledge-base gap finding for RAG/search readiness
+- AI workflow audit intake-to-backlog generation
+- ROI snapshot calculation
+- Lead-fit/proposal triage
+- Pilot scope and quote drafting
+
+If you want the full template pack, customization, or a fixed-scope AI workflow audit, open an inquiry here:
+
+- **Template pack / customization inquiry:** https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=workflow-pack-inquiry.yml
+- **Workflow audit / pilot inquiry:** https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=audit-pilot-inquiry.yml
+
+## Support boundary
+
+This free repo is a public preview and does not include managed implementation support. Buyers/users are responsible for their own n8n instance, API credentials, workspace permissions, and security review. Custom integration work should be scoped separately.
+
+## License
+
+The free lite workflow in this repository is provided under the MIT License. The unreleased full pack, customizations, and client-specific implementation materials are not included in this repository.
