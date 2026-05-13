@@ -36,9 +36,18 @@ When answering a public issue, ask only for sanitized details:
 - redacted error text;
 - whether the final `markdown` field appeared.
 
-Do not request or post tokens, private repository URLs, customer data, production logs, internal screenshots, paid account details, invoices, legal/KYC/tax information, or credentials. If a reporter needs examples, link them to `docs/public-safe-issue-examples.md`.
+Do not request or post tokens, private repository URLs, customer data, production logs, internal screenshots, paid account details, invoices, legal/KYC/tax information, credentials, or exploit details for a real private system. If a reporter needs examples, link them to `docs/public-safe-issue-examples.md`; if they ask what can be shared publicly, link `SECURITY.md`.
 
-## 4. Release note template
+## 4. Security boundary smoke check
+
+Before a release or public support reply, confirm:
+
+- `SECURITY.md` is present and linked from `README.md`;
+- issue replies ask for sanitized symptoms only, not secrets or private repo details;
+- any security-sensitive finding is reproducible on `n8n-io/n8n` or a synthetic sample before it is discussed publicly;
+- custom private-repo integrations, credential review, or production debugging are not promised in the free public repo.
+
+## 5. Release note template
 
 ```markdown
 ## Free Lite release check
