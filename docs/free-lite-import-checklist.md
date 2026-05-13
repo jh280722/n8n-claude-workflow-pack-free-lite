@@ -65,4 +65,6 @@ When opening a setup issue, include only:
 - redacted error text;
 - whether the final `markdown` field appeared.
 
+For copyable public-safe examples, see `docs/public-safe-issue-examples.md`.
+
 Do **not** include API keys, tokens, private repository names, customer data, production logs, invoices, legal/KYC/tax details, or internal screenshots.

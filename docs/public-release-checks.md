@@ -36,7 +36,7 @@ When answering a public issue, ask only for sanitized details:
 - redacted error text;
 - whether the final `markdown` field appeared.
 
-Do not request or post tokens, private repository URLs, customer data, production logs, internal screenshots, paid account details, invoices, legal/KYC/tax information, or credentials.
+Do not request or post tokens, private repository URLs, customer data, production logs, internal screenshots, paid account details, invoices, legal/KYC/tax information, or credentials. If a reporter needs examples, link them to `docs/public-safe-issue-examples.md`.
 
 ## 4. Release note template
 

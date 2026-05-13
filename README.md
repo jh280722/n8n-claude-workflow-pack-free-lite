@@ -34,6 +34,7 @@ If you try it and hit setup friction, open a public issue with:
 - Public GitHub API fetch for commits, merged PRs, and closed issues
 - Markdown output that can be copied into Slack, Notion, Linear, or a weekly status doc
 - Import checklist and public-safe troubleshooting guide: `docs/free-lite-import-checklist.md`
+- Copyable sanitized issue examples: `docs/public-safe-issue-examples.md`
 - No Claude/Anthropic API key required
 - No Slack webhook required
 - No private repo access required by default
@@ -65,7 +66,7 @@ python3 scripts/validate_free_lite.py
 
 The validator checks that the workflow JSON is parseable, still includes the expected read-only GitHub snapshot nodes, keeps `GITHUB_TOKEN` optional, and does not contain common posting/mutating integrations or secret-like markers.
 
-Before tagging a release or responding to public setup reports, also use the manual release/support checklist in `docs/public-release-checks.md`.
+Before tagging a release or responding to public setup reports, also use the manual release/support checklist in `docs/public-release-checks.md`. For copyable examples of safe public issue content, see `docs/public-safe-issue-examples.md`.
 
 ## Full pack / paid help
 
