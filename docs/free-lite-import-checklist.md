@@ -65,6 +65,6 @@ When opening a setup issue, include only:
 - redacted error text;
 - whether the final `markdown` field appeared.
 
-For copyable public-safe examples, see `docs/public-safe-issue-examples.md`.
+For copyable public-safe examples, see `docs/public-safe-issue-examples.md`. For a step-by-step public-repo smoke test, use `docs/free-lite-demo-runbook.md`.
 
 Do **not** include API keys, tokens, private repository names, customer data, production logs, invoices, legal/KYC/tax details, or internal screenshots.

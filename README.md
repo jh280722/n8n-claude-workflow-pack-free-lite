@@ -34,6 +34,7 @@ If you try it and hit setup friction, open a public issue with:
 - Public GitHub API fetch for commits, merged PRs, and closed issues
 - Markdown output that can be copied into Slack, Notion, Linear, or a weekly status doc
 - Import checklist and public-safe troubleshooting guide: `docs/free-lite-import-checklist.md`
+- 10-minute public demo runbook: `docs/free-lite-demo-runbook.md`
 - Copyable sanitized issue examples: `docs/public-safe-issue-examples.md`
 - No Claude/Anthropic API key required
 - No Slack webhook required
@@ -47,7 +48,8 @@ If you try it and hit setup friction, open a public issue with:
    - `LOOKBACK_DAYS=7`
    - `GITHUB_TOKEN=...` — optional, only for higher rate limits or repos you are authorized to inspect
 3. Run the workflow manually and inspect the `markdown` field in the final node.
-4. If import or execution fails, use the 5-minute checklist in `docs/free-lite-import-checklist.md` before opening a public issue.
+4. For a safer first pass, follow the 10-minute public demo runbook in `docs/free-lite-demo-runbook.md`.
+5. If import or execution fails, use the 5-minute checklist in `docs/free-lite-import-checklist.md` before opening a public issue.
 
 ## Safety defaults
 
@@ -66,7 +68,7 @@ python3 scripts/validate_free_lite.py
 
 The validator checks that the workflow JSON is parseable, still includes the expected read-only GitHub snapshot nodes, keeps `GITHUB_TOKEN` optional, and does not contain common posting/mutating integrations or secret-like markers.
 
-Before tagging a release or responding to public setup reports, also use the manual release/support checklist in `docs/public-release-checks.md`. For copyable examples of safe public issue content, see `docs/public-safe-issue-examples.md`.
+Before tagging a release or responding to public setup reports, also use the manual release/support checklist in `docs/public-release-checks.md`. For a public-safe first-run walkthrough, see `docs/free-lite-demo-runbook.md`. For copyable examples of safe public issue content, see `docs/public-safe-issue-examples.md`.
 
 ## Full pack / paid help
 
