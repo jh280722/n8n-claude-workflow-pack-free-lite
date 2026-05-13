@@ -14,6 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW_PATH = ROOT / "workflows" / "free-lite-github-weekly-snapshot.json"
 ISSUE_TEMPLATE_DIR = ROOT / ".github" / "ISSUE_TEMPLATE"
+TROUBLESHOOTING_FAQ_PATH = ROOT / "docs" / "free-lite-troubleshooting-faq.md"
 
 FORBIDDEN_MUTATING_PATTERNS = [
     r"api\.github\.com/repos/[^`'\"\s]+/[^`'\"\s]+/issues/[^`'\"\s]+/comments",
@@ -87,6 +88,26 @@ def main() -> None:
 
     if not ISSUE_TEMPLATE_DIR.exists():
         fail("missing .github/ISSUE_TEMPLATE public inquiry forms")
+
+    if not TROUBLESHOOTING_FAQ_PATH.exists():
+        fail("missing public-safe troubleshooting FAQ")
+
+    faq_text = TROUBLESHOOTING_FAQ_PATH.read_text(encoding="utf-8").lower()
+    faq_required_markers = (
+        "public repository",
+        "sanitized",
+        "tokens",
+        "private repository urls",
+        "customer data",
+        "credentials",
+        "payout",
+    )
+    missing_faq_markers = [marker for marker in faq_required_markers if marker not in faq_text]
+    if missing_faq_markers:
+        fail(
+            "public-safe troubleshooting FAQ is missing marker(s): "
+            f"{', '.join(missing_faq_markers)}"
+        )
 
     missing_templates = sorted(
         name for name in REQUIRED_ISSUE_TEMPLATES if not (ISSUE_TEMPLATE_DIR / name).exists()

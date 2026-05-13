@@ -20,6 +20,8 @@ This confirms the workflow JSON parses, still includes the read-only GitHub snap
 
 Also run the local preflight in `docs/free-lite-validation-preflight.md` before release/support decisions; it adds `git diff --check`, public-safe screenshot/example checks, and issue-response hygiene.
 
+Confirm the troubleshooting FAQ in `docs/free-lite-troubleshooting-faq.md` remains linked from `README.md` before replying to setup issues; it keeps common import/API/output debugging public-safe.
+
 ## 2. Manual import smoke test
 
 1. Import `workflows/free-lite-github-weekly-snapshot.json` into n8n.
@@ -48,6 +50,7 @@ Before a release or public support reply, confirm:
 - the four issue forms linked from `README.md` are present under `.github/ISSUE_TEMPLATE/` and keep blank issues disabled;
 - issue replies ask for sanitized symptoms only, not secrets or private repo details;
 - any security-sensitive finding is reproducible on `n8n-io/n8n` or a synthetic sample before it is discussed publicly;
+- setup troubleshooting links to `docs/free-lite-troubleshooting-faq.md` before asking for more details;
 - custom private-repo integrations, credential review, or production debugging are not promised in the free public repo.
 
 ## 5. Release note template
