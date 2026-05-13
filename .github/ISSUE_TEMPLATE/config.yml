@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Free Lite setup notes
-    url: https://github.com/jh280722/n8n-claude-workflow-pack-free-lite#quick-start
-    about: Read the quick start before opening a public issue.
-  - name: Pricing and boundaries
-    url: https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/blob/main/PRICING.md
-    about: Review draft paid options and public support boundaries.
+  - name: Public-safe setup checklist
+    url: https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/blob/main/docs/free-lite-import-checklist.md
+    about: Read this before opening a setup issue.
+  - name: Release and support hygiene checklist
+    url: https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/blob/main/docs/public-release-checks.md
+    about: Public-support boundaries and sanitized issue response notes.

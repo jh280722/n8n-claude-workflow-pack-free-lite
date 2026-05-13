@@ -1,62 +1,58 @@
-name: Workflow audit / pilot inquiry
-description: Ask about a fixed-scope AI workflow audit or narrow implementation pilot using sanitized context only.
-title: "[Audit/pilot inquiry]: "
+name: Workflow audit or pilot inquiry
+description: Public-safe inquiry for a fixed-scope AI workflow audit or small pilot.
+title: "[audit/pilot]: "
 labels: ["inquiry", "audit-pilot"]
 body:
   - type: markdown
     attributes:
       value: |
-        Use this for a public, sanitized first pass only.
-
-        **Do not post:** API keys, tokens, private repo links, customer data, internal security incidents, workplace confidential data, legal/procurement details, bank/Stripe/tax/KYC details, or production credentials.
+        Use this only for public-safe scoping. Do not include workplace secrets, customer data, private repo names/URLs, internal logs, production credentials, procurement/legal/KYC/tax/bank/payout details, or private screenshots.
   - type: dropdown
     id: request-type
     attributes:
-      label: Request type
+      label: What are you considering?
       options:
-        - AI workflow audit beta
-        - 2-week implementation pilot
-        - Audit first, then decide
+        - AI workflow audit
+        - Small read-only automation pilot
+        - n8n workflow review
+        - Workflow safety/red-team review
+        - Not sure yet
+    validations:
+      required: true
+  - type: dropdown
+    id: first-data-source
+    attributes:
+      label: Safe first test data source
+      options:
+        - Public GitHub repo
+        - Sanitized CSV/Markdown sample
+        - Sanitized workflow export
+        - Private data later, not shared here
         - Not sure yet
     validations:
       required: true
   - type: textarea
-    id: team-context
+    id: problem-summary
     attributes:
-      label: Team/context snapshot
-      description: Keep this high-level and sanitized.
-      placeholder: "Example: 8-person product team; GitHub + Slack + Notion; weekly release notes and PR follow-up are manual."
+      label: Public-safe problem summary
+      description: Keep it generic and sanitized. Avoid names of private systems, clients, incidents, or secrets.
+      placeholder: "We spend too much time turning public repo activity into weekly status drafts."
     validations:
       required: true
   - type: textarea
-    id: manual-process
+    id: desired-output
     attributes:
-      label: Manual process to audit
-      placeholder: "Example: Review merged PRs, identify risky changes, write a weekly ops brief, and create follow-up tasks."
-    validations:
-      required: true
-  - type: dropdown
-    id: automation-risk
-    attributes:
-      label: Preferred automation risk level
-      options:
-        - Draft-only recommendations; no writes to tools
-        - Human-approved posting to Slack/Notion
-        - Human-approved GitHub comments/issues
-        - Need help choosing a safe boundary
-    validations:
-      required: true
-  - type: textarea
-    id: success-metric
-    attributes:
-      label: Success metric
-      placeholder: "Example: save 2 hours/week, reduce missed follow-ups, standardize weekly stakeholder update."
-    validations:
-      required: true
-  - type: textarea
-    id: blockers
-    attributes:
-      label: Known blockers or requirements
-      placeholder: "Example: must self-host n8n; cannot share private data publicly; security review required before credentials."
+      label: Desired reviewed output
+      description: The recommended starting point is draft-only output with human review before any posting or write action.
+      placeholder: "A markdown digest that a human reviews before Slack/Notion posting."
     validations:
       required: false
+  - type: checkboxes
+    id: safety-boundary
+    attributes:
+      label: Safety boundary
+      options:
+        - label: I removed secrets, private repo names/URLs, customer data, production logs, and internal screenshots from this issue.
+          required: true
+        - label: I understand the first public-safe discussion should stay read-only/draft-only and avoid guaranteed ROI claims.
+          required: true

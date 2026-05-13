@@ -1,40 +1,50 @@
 name: Free Lite feedback or integration request
-description: Share public-safe feedback on output format or next integration priority.
-title: "[Free Lite feedback]: "
-labels: ["free-lite", "sample output request", "integration request"]
+description: Share public-safe feedback about the Free Lite workflow or request a next integration direction.
+title: "[feedback]: "
+labels: ["free-lite", "feedback"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for testing Free Lite. Please keep this issue public-safe.
-
-        **Do not post:** API keys, tokens, private repository URLs, customer data, internal logs, production credentials, payment details, or confidential screenshots.
+        Please keep this issue public-safe. Do not include secrets, private repo names, customer data, internal logs, or screenshots from private systems.
   - type: dropdown
-    id: feedback-type
+    id: result
     attributes:
-      label: Feedback type
+      label: What happened when you tried the workflow?
       options:
-        - Sample output format request
-        - Slack integration request
-        - Discord integration request
-        - Notion integration request
-        - Claude narrative summary request
-        - Other public-safe feedback
+        - Imported and ran successfully
+        - Imported but did not run successfully
+        - Did not import successfully
+        - I have not tried it yet
     validations:
       required: true
   - type: textarea
-    id: what-would-help
+    id: useful-part
     attributes:
-      label: What would make this more useful?
-      description: Describe the desired output field, workflow behavior, or integration using public/sanitized examples only.
-      placeholder: "Example: Add a 'stale PRs' section with PR number, title, and days since last update."
+      label: What was useful?
+      description: Describe the output or setup step that helped. Keep examples sanitized.
+      placeholder: "The markdown summary helped me review merged PRs before a weekly update."
+    validations:
+      required: false
+  - type: dropdown
+    id: next-integration
+    attributes:
+      label: Which integration would be most useful next?
+      options:
+        - Claude narrative summary
+        - Slack delivery
+        - Discord delivery
+        - Notion page/database output
+        - GitHub issue/PR digest
+        - Other / not sure
     validations:
       required: true
   - type: textarea
-    id: current-workaround
+    id: sanitized-context
     attributes:
-      label: Current workaround, if any
-      placeholder: "Example: I copy the markdown into Slack and manually add next-step questions."
+      label: Sanitized context
+      description: Share only public-safe context about your use case. Avoid company/client names unless they are public and safe to mention.
+      placeholder: "Small open-source maintainer team; weekly release note draft; public repo only."
     validations:
       required: false
   - type: checkboxes
@@ -42,5 +52,5 @@ body:
     attributes:
       label: Public-safety confirmation
       options:
-        - label: I removed tokens, private repo names, customer data, internal logs, and confidential screenshots.
+        - label: I removed secrets, private repository details, customer data, production logs, and internal screenshots from this issue.
           required: true

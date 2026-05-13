@@ -1,41 +1,68 @@
 name: Free Lite setup question
-description: Ask a public setup question about the free workflow. Do not share secrets or private data.
-title: "[Free Lite setup]: "
-labels: ["question", "free-lite", "setup friction"]
+description: Public-safe setup help for importing or running the Free Lite n8n workflow.
+title: "[setup]: "
+labels: ["free-lite", "setup"]
 body:
   - type: markdown
     attributes:
       value: |
-        Public setup questions are welcome.
-
-        **Do not post:** API keys, tokens, private repository URLs, customer data, internal logs with secrets, or screenshots that reveal credentials.
+        Thanks for testing the Free Lite workflow. Please keep this issue public-safe: do not paste API keys, tokens, private repository URLs, customer data, production logs, or proprietary workflow exports.
   - type: input
     id: n8n-version
     attributes:
       label: n8n version
-      placeholder: "Example: 1.92.0 self-hosted, n8n Cloud, etc."
+      description: "Example: 1.96.0. If unknown, write 'unknown'."
+      placeholder: "1.x.x"
     validations:
-      required: false
-  - type: textarea
-    id: what-happened
+      required: true
+  - type: dropdown
+    id: import-status
     attributes:
-      label: What happened?
-      description: Describe the setup issue using sanitized details.
-      placeholder: "Example: Import succeeds, but the final markdown field is empty for owner/repo."
+      label: Did the workflow import successfully?
+      options:
+        - "Yes"
+        - "No"
+        - "Not sure"
+    validations:
+      required: true
+  - type: input
+    id: public-test-repo
+    attributes:
+      label: Public test repo used
+      description: "Use owner/repo for a public repo only. If you tested a private repo, write 'private repo tested; name redacted'."
+      placeholder: "n8n-io/n8n"
+    validations:
+      required: true
+  - type: input
+    id: failing-node
+    attributes:
+      label: Failing node name
+      description: "If no node failed, write 'none'."
+      placeholder: "Fetch GitHub Activity and Build Markdown"
     validations:
       required: true
   - type: textarea
-    id: expected
+    id: redacted-error
     attributes:
-      label: Expected result
-      placeholder: "Example: Markdown with commit/PR/issue counts for the last 7 days."
-    validations:
-      required: true
-  - type: textarea
-    id: sanitized-config
-    attributes:
-      label: Sanitized configuration
-      description: Share only safe values. Replace private names with owner/repo placeholders.
-      placeholder: "GITHUB_REPO=public-owner/public-repo; LOOKBACK_DAYS=7; no token pasted."
+      label: Redacted error text
+      description: Paste only sanitized error text. Remove tokens, URLs for private repos, internal hostnames, and customer data.
+      placeholder: "GitHub commits failed: 403 ..."
     validations:
       required: false
+  - type: dropdown
+    id: markdown-output
+    attributes:
+      label: Did the final markdown field appear?
+      options:
+        - "Yes"
+        - "No"
+        - "Not sure"
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety-confirmation
+    attributes:
+      label: Public-safety confirmation
+      options:
+        - label: I removed secrets, private repo names/URLs, customer data, production logs, and internal screenshots from this issue.
+          required: true

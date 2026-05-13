@@ -1,71 +1,58 @@
-name: Workflow pack / customization inquiry
-description: Ask about the paid workflow template pack or a small customization using sanitized context only.
-title: "[Workflow pack inquiry]: "
-labels: ["inquiry", "workflow-pack"]
+name: Template pack or customization inquiry
+description: Public-safe inquiry for the broader n8n + Claude workflow template pack or customization needs.
+title: "[inquiry]: "
+labels: ["inquiry", "template-pack"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for checking out Free Lite.
-
-        **Public safety rule:** do not paste secrets, API keys, private repo URLs, customer data, internal incident details, or proprietary workflow exports into this public issue. Keep examples sanitized.
+        This public issue is only for sanitized, non-sensitive scoping. Do not include API keys, private repository URLs, customer names/data, procurement details, KYC/tax/bank/payout information, production logs, or internal screenshots. If a paid engagement is approved later, sensitive implementation details should move to an approved private channel.
   - type: dropdown
     id: interest
     attributes:
       label: What are you interested in?
       options:
-        - Starter template pack
-        - Pro template pack
-        - Small customization of Free Lite
+        - Full template pack
+        - Customizing the Free Lite workflow
+        - Claude narrative summary workflow
+        - PR review or release digest workflow
+        - Slack/Notion/Discord delivery workflow
+        - Other / not sure
+    validations:
+      required: true
+  - type: textarea
+    id: public-safe-use-case
+    attributes:
+      label: Public-safe use case
+      description: Describe the use case without private data or internal system details.
+      placeholder: "We want a weekly public repo digest that a maintainer reviews before posting."
+    validations:
+      required: true
+  - type: dropdown
+    id: data-sensitivity
+    attributes:
+      label: What data would the workflow use in the first test?
+      options:
+        - Public GitHub data only
+        - Sanitized sample data only
+        - Private data later, but not shared in this issue
         - Not sure yet
     validations:
       required: true
   - type: textarea
-    id: current-workflow
+    id: success-criteria
     attributes:
-      label: Current workflow pain point
-      description: Describe the workflow at a high level. Use public/sanitized examples only.
-      placeholder: "Example: We manually summarize public GitHub release activity every Friday and paste it into Slack."
-    validations:
-      required: true
-  - type: dropdown
-    id: tools
-    attributes:
-      label: Tools involved
-      multiple: true
-      options:
-        - n8n
-        - GitHub
-        - Slack
-        - Notion
-        - Linear/Jira
-        - Claude/Anthropic API
-        - Other
-    validations:
-      required: true
-  - type: textarea
-    id: desired-output
-    attributes:
-      label: Desired output
-      description: What should the workflow produce?
-      placeholder: "Example: Markdown weekly summary, PR risk digest, Notion task list, Slack-ready draft."
-    validations:
-      required: true
-  - type: dropdown
-    id: credential-boundary
-    attributes:
-      label: Credential/data boundary
-      description: Confirm what you can share publicly in this issue.
-      options:
-        - Public repos/data only
-        - Sanitized examples only
-        - Private data exists but will not be posted here
-    validations:
-      required: true
-  - type: textarea
-    id: constraints
-    attributes:
-      label: Constraints or must-haves
-      placeholder: "Example: draft-only output, no auto-posting, English/Korean output, Friday schedule."
+      label: Public-safe success criteria
+      description: Describe observable outcomes without promising or requesting guaranteed ROI.
+      placeholder: "Import succeeds; produces a draft markdown digest; human approval happens before posting."
     validations:
       required: false
+  - type: checkboxes
+    id: boundary-confirmation
+    attributes:
+      label: Boundary confirmation
+      options:
+        - label: I understand this public issue cannot include secrets, private data, legal/procurement details, or payment/KYC/tax/bank information.
+          required: true
+        - label: I understand any custom work must be separately scoped and does not include guaranteed ROI claims.
+          required: true
