@@ -35,6 +35,7 @@ If you try it and hit setup friction, open a public issue with:
 - Markdown output that can be copied into Slack, Notion, Linear, or a weekly status doc
 - Import checklist and public-safe troubleshooting guide: `docs/free-lite-import-checklist.md`
 - 10-minute public demo runbook: `docs/free-lite-demo-runbook.md`
+- Local validation preflight: `docs/free-lite-validation-preflight.md`
 - Copyable sanitized issue examples: `docs/public-safe-issue-examples.md`
 - Public support/security boundary: `SECURITY.md`
 - No Claude/Anthropic API key required
@@ -66,6 +67,8 @@ Run the included public-safety validator before sharing a modified workflow:
 ```bash
 python3 scripts/validate_free_lite.py
 ```
+
+The local validation preflight in `docs/free-lite-validation-preflight.md` expands this into a short release/support routine with `git diff --check`, screenshot safety checks, and public issue hygiene.
 
 The validator checks that the workflow JSON is parseable, still includes the expected read-only GitHub snapshot nodes, keeps `GITHUB_TOKEN` optional, and does not contain common posting/mutating integrations or secret-like markers.
 

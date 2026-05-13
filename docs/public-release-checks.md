@@ -18,6 +18,8 @@ OK: Free Lite workflow JSON is valid and passes static public-safety checks.
 
 This confirms the workflow JSON parses, still includes the read-only GitHub snapshot nodes, keeps `GITHUB_TOKEN` optional, and does not include common posting/mutating integrations or secret-like markers.
 
+Also run the local preflight in `docs/free-lite-validation-preflight.md` before release/support decisions; it adds `git diff --check`, public-safe screenshot/example checks, and issue-response hygiene.
+
 ## 2. Manual import smoke test
 
 1. Import `workflows/free-lite-github-weekly-snapshot.json` into n8n.
