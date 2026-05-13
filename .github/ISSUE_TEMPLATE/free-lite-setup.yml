@@ -1,17 +1,17 @@
 name: Free Lite setup question
-description: Public-safe setup help for importing or running the Free Lite n8n workflow.
-title: "[setup]: "
+description: Ask a public-safe setup or import question about the Free Lite workflow.
+title: "[Setup]: "
 labels: ["free-lite", "setup"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for testing the Free Lite workflow. Please keep this issue public-safe: do not paste API keys, tokens, private repository URLs, customer data, production logs, or proprietary workflow exports.
+        Thanks for trying the Free Lite workflow. Keep this issue public-safe: do not post API keys, private repository URLs, customer data, production logs, internal screenshots, credentials, paid account details, tax/KYC details, or exploit details for a real private system.
   - type: input
     id: n8n-version
     attributes:
       label: n8n version
-      description: "Example: 1.96.0. If unknown, write 'unknown'."
+      description: "Example: 1.90.0. If unknown, write unknown."
       placeholder: "1.x.x"
     validations:
       required: true
@@ -22,41 +22,32 @@ body:
       options:
         - "Yes"
         - "No"
-        - "Not sure"
+        - "Not tried yet"
     validations:
       required: true
   - type: input
-    id: public-test-repo
+    id: failed-node
     attributes:
-      label: Public test repo used
-      description: "Use owner/repo for a public repo only. If you tested a private repo, write 'private repo tested; name redacted'."
-      placeholder: "n8n-io/n8n"
-    validations:
-      required: true
-  - type: input
-    id: failing-node
-    attributes:
-      label: Failing node name
-      description: "If no node failed, write 'none'."
+      label: Node that failed, if any
+      description: "Use the node name only. Do not paste credentials or private URLs."
       placeholder: "Fetch GitHub Activity and Build Markdown"
+  - type: dropdown
+    id: data-safety
+    attributes:
+      label: What kind of test data did you use?
+      options:
+        - "Public repository"
+        - "Sanitized sample data"
+        - "Private repository, but not naming it publicly"
+        - "Not applicable"
     validations:
       required: true
   - type: textarea
-    id: redacted-error
+    id: sanitized-error
     attributes:
-      label: Redacted error text
-      description: Paste only sanitized error text. Remove tokens, URLs for private repos, internal hostnames, and customer data.
-      placeholder: "GitHub commits failed: 403 ..."
-    validations:
-      required: false
-  - type: dropdown
-    id: markdown-output
-    attributes:
-      label: Did the final markdown field appear?
-      options:
-        - "Yes"
-        - "No"
-        - "Not sure"
+      label: Sanitized error or symptom
+      description: "Redact tokens, private repo names, hostnames, customer names, request IDs, and production logs before posting."
+      placeholder: "The final node did not return a markdown field. Redacted error: ..."
     validations:
       required: true
   - type: checkboxes
@@ -64,5 +55,5 @@ body:
     attributes:
       label: Public-safety confirmation
       options:
-        - label: I removed secrets, private repo names/URLs, customer data, production logs, and internal screenshots from this issue.
+        - label: "I removed tokens, private repo URLs, customer data, production logs, credentials, and paid account/KYC/tax details from this issue."
           required: true

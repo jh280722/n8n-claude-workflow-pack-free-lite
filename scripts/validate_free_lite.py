@@ -13,6 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW_PATH = ROOT / "workflows" / "free-lite-github-weekly-snapshot.json"
+ISSUE_TEMPLATE_DIR = ROOT / ".github" / "ISSUE_TEMPLATE"
 
 FORBIDDEN_MUTATING_PATTERNS = [
     r"api\.github\.com/repos/[^`'\"\s]+/[^`'\"\s]+/issues/[^`'\"\s]+/comments",
@@ -29,6 +30,21 @@ REQUIRED_NODE_NAMES = {
     "Fetch GitHub Activity and Build Markdown",
     "Output Markdown Snapshot",
 }
+
+REQUIRED_ISSUE_TEMPLATES = {
+    "free-lite-setup.yml",
+    "free-lite-feedback.yml",
+    "workflow-pack-inquiry.yml",
+    "audit-pilot-inquiry.yml",
+    "config.yml",
+}
+
+PUBLIC_SAFETY_MARKERS = (
+    "tokens",
+    "private",
+    "customer data",
+    "credentials",
+)
 
 
 def fail(message: str) -> None:
@@ -69,7 +85,25 @@ def main() -> None:
         if secret_like in raw:
             fail(f"workflow contains a secret-like marker: {secret_like}")
 
-    print("OK: Free Lite workflow JSON is valid and passes static public-safety checks.")
+    if not ISSUE_TEMPLATE_DIR.exists():
+        fail("missing .github/ISSUE_TEMPLATE public inquiry forms")
+
+    missing_templates = sorted(
+        name for name in REQUIRED_ISSUE_TEMPLATES if not (ISSUE_TEMPLATE_DIR / name).exists()
+    )
+    if missing_templates:
+        fail(f"missing public issue template(s): {', '.join(missing_templates)}")
+
+    for template_name in sorted(REQUIRED_ISSUE_TEMPLATES - {"config.yml"}):
+        template_text = (ISSUE_TEMPLATE_DIR / template_name).read_text(encoding="utf-8").lower()
+        missing_markers = [marker for marker in PUBLIC_SAFETY_MARKERS if marker not in template_text]
+        if missing_markers:
+            fail(
+                f"issue template {template_name} is missing public-safety marker(s): "
+                f"{', '.join(missing_markers)}"
+            )
+
+    print("OK: Free Lite workflow JSON and public issue forms pass static public-safety checks.")
 
 
 if __name__ == "__main__":

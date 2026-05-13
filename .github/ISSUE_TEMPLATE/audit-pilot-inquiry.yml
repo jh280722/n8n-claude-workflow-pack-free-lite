@@ -1,58 +1,60 @@
 name: Workflow audit or pilot inquiry
-description: Public-safe inquiry for a fixed-scope AI workflow audit or small pilot.
-title: "[audit/pilot]: "
+description: Public-safe inquiry for a fixed-scope workflow audit or pilot discussion.
+title: "[Audit/Pilot]: "
 labels: ["inquiry", "audit-pilot"]
 body:
   - type: markdown
     attributes:
       value: |
-        Use this only for public-safe scoping. Do not include workplace secrets, customer data, private repo names/URLs, internal logs, production credentials, procurement/legal/KYC/tax/bank/payout details, or private screenshots.
+        Use this form only for sanitized public context. Do not post workplace/private data, credentials, tokens, private repository URLs, customer data, production logs, legal/KYC/tax/bank/payout information, contracts, or promises/requirements for guaranteed ROI.
   - type: dropdown
-    id: request-type
+    id: audit-area
     attributes:
-      label: What are you considering?
+      label: Which area needs audit or pilot help?
       options:
-        - AI workflow audit
-        - Small read-only automation pilot
-        - n8n workflow review
-        - Workflow safety/red-team review
-        - Not sure yet
+        - "GitHub activity summary workflow"
+        - "PR review or release-readiness workflow"
+        - "Slack/Notion/Discord handoff workflow"
+        - "Meeting/action item extraction workflow"
+        - "AI workflow backlog or ROI snapshot"
+        - "Other public-safe workflow area"
     validations:
       required: true
   - type: dropdown
-    id: first-data-source
+    id: current-stage
     attributes:
-      label: Safe first test data source
+      label: Current stage
       options:
-        - Public GitHub repo
-        - Sanitized CSV/Markdown sample
-        - Sanitized workflow export
-        - Private data later, not shared here
-        - Not sure yet
+        - "Idea / requirements only"
+        - "Existing n8n workflow needs review"
+        - "Imported Free Lite and want next-step guidance"
+        - "Pilot scope exploration"
     validations:
       required: true
   - type: textarea
-    id: problem-summary
+    id: public-safe-scope
     attributes:
-      label: Public-safe problem summary
-      description: Keep it generic and sanitized. Avoid names of private systems, clients, incidents, or secrets.
-      placeholder: "We spend too much time turning public repo activity into weekly status drafts."
+      label: Public-safe scope summary
+      description: "Describe the process at a high level only. Redact private systems, customers, incidents, logs, and credentials."
+      placeholder: "We want a human-reviewed weekly summary from public or sanitized GitHub activity."
     validations:
       required: true
-  - type: textarea
-    id: desired-output
+  - type: dropdown
+    id: constraints
     attributes:
-      label: Desired reviewed output
-      description: The recommended starting point is draft-only output with human review before any posting or write action.
-      placeholder: "A markdown digest that a human reviews before Slack/Notion posting."
+      label: Important constraints
+      options:
+        - "Read-only / draft-only output"
+        - "Human approval before posting"
+        - "No private data in public discussion"
+        - "Need security/permissions review later"
+        - "Not sure yet"
     validations:
-      required: false
+      required: true
   - type: checkboxes
-    id: safety-boundary
+    id: safety-confirmation
     attributes:
-      label: Safety boundary
+      label: Public-safety confirmation
       options:
-        - label: I removed secrets, private repo names/URLs, customer data, production logs, and internal screenshots from this issue.
-          required: true
-        - label: I understand the first public-safe discussion should stay read-only/draft-only and avoid guaranteed ROI claims.
+        - label: "I removed secrets, private URLs, customer data, production logs, credentials, legal/KYC/tax/bank details, and guaranteed ROI claims from this issue."
           required: true

@@ -1,56 +1,54 @@
 name: Free Lite feedback or integration request
-description: Share public-safe feedback about the Free Lite workflow or request a next integration direction.
-title: "[feedback]: "
+description: Share public-safe feedback about the Free Lite workflow or request a future integration.
+title: "[Feedback]: "
 labels: ["free-lite", "feedback"]
 body:
   - type: markdown
     attributes:
       value: |
-        Please keep this issue public-safe. Do not include secrets, private repo names, customer data, internal logs, or screenshots from private systems.
+        Please keep feedback sanitized and public-safe. Do not include tokens, private repository names, customer data, internal incidents, production logs, credentials, paid account details, legal/KYC/tax details, or confidential workflow exports.
   - type: dropdown
-    id: result
+    id: outcome
     attributes:
-      label: What happened when you tried the workflow?
+      label: What happened when you tried Free Lite?
       options:
-        - Imported and ran successfully
-        - Imported but did not run successfully
-        - Did not import successfully
-        - I have not tried it yet
+        - "Imported and produced markdown"
+        - "Imported but output was not useful"
+        - "Import or execution failed"
+        - "Reviewing before trying"
     validations:
       required: true
   - type: textarea
-    id: useful-part
+    id: useful-parts
     attributes:
-      label: What was useful?
-      description: Describe the output or setup step that helped. Keep examples sanitized.
-      placeholder: "The markdown summary helped me review merged PRs before a weekly update."
+      label: What was useful or unclear?
+      description: "Use public or synthetic examples only. Redact anything private."
+      placeholder: "The PR section was useful, but I wanted clearer stale issue grouping."
     validations:
-      required: false
+      required: true
   - type: dropdown
     id: next-integration
     attributes:
-      label: Which integration would be most useful next?
+      label: Which future integration would be most useful?
       options:
-        - Claude narrative summary
-        - Slack delivery
-        - Discord delivery
-        - Notion page/database output
-        - GitHub issue/PR digest
-        - Other / not sure
+        - "Claude narrative summary"
+        - "Slack delivery"
+        - "Discord delivery"
+        - "Notion page draft"
+        - "Linear/Jira handoff"
+        - "Other public-safe suggestion"
     validations:
       required: true
   - type: textarea
-    id: sanitized-context
+    id: public-safe-context
     attributes:
-      label: Sanitized context
-      description: Share only public-safe context about your use case. Avoid company/client names unless they are public and safe to mention.
-      placeholder: "Small open-source maintainer team; weekly release note draft; public repo only."
-    validations:
-      required: false
+      label: Public-safe context
+      description: "Describe team size/use case at a high level only. No company-private details."
+      placeholder: "Small OSS repo, weekly maintainer update, public GitHub activity only."
   - type: checkboxes
     id: safety-confirmation
     attributes:
       label: Public-safety confirmation
       options:
-        - label: I removed secrets, private repository details, customer data, production logs, and internal screenshots from this issue.
+        - label: "I removed secrets, private repo names, customer data, production logs, credentials, and paid account/KYC/tax details from this issue."
           required: true

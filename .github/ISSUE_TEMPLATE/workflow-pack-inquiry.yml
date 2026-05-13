@@ -1,58 +1,53 @@
 name: Template pack or customization inquiry
-description: Public-safe inquiry for the broader n8n + Claude workflow template pack or customization needs.
-title: "[inquiry]: "
+description: Public-safe inquiry for the broader template pack or a scoped customization discussion.
+title: "[Inquiry]: "
 labels: ["inquiry", "template-pack"]
 body:
   - type: markdown
     attributes:
       value: |
-        This public issue is only for sanitized, non-sensitive scoping. Do not include API keys, private repository URLs, customer names/data, procurement details, KYC/tax/bank/payout information, production logs, or internal screenshots. If a paid engagement is approved later, sensitive implementation details should move to an approved private channel.
+        This is only for sanitized, public pre-qualification. Do not include tokens, private workspace data, credentials, private repository names, customer data, procurement/legal/KYC/tax details, payout/bank information, contracts, or confidential workflow exports. Sensitive scoping, if approved later, should move to an approved private channel.
   - type: dropdown
     id: interest
     attributes:
       label: What are you interested in?
       options:
-        - Full template pack
-        - Customizing the Free Lite workflow
-        - Claude narrative summary workflow
-        - PR review or release digest workflow
-        - Slack/Notion/Discord delivery workflow
-        - Other / not sure
-    validations:
-      required: true
-  - type: textarea
-    id: public-safe-use-case
-    attributes:
-      label: Public-safe use case
-      description: Describe the use case without private data or internal system details.
-      placeholder: "We want a weekly public repo digest that a maintainer reviews before posting."
+        - "Full n8n + Claude workflow template pack"
+        - "Customization of the Free Lite workflow"
+        - "Slack/Notion/Discord delivery pattern"
+        - "Private-repo adaptation guidance"
+        - "Not sure yet"
     validations:
       required: true
   - type: dropdown
-    id: data-sensitivity
+    id: data-boundary
     attributes:
-      label: What data would the workflow use in the first test?
+      label: What data boundary should the workflow respect?
       options:
-        - Public GitHub data only
-        - Sanitized sample data only
-        - Private data later, but not shared in this issue
-        - Not sure yet
+        - "Public GitHub data only"
+        - "Sanitized exports only"
+        - "Private repo/workspace data would be needed later, not shared here"
+        - "Unknown"
     validations:
       required: true
   - type: textarea
-    id: success-criteria
+    id: desired-outcome
     attributes:
-      label: Public-safe success criteria
-      description: Describe observable outcomes without promising or requesting guaranteed ROI.
-      placeholder: "Import succeeds; produces a draft markdown digest; human approval happens before posting."
+      label: Desired outcome
+      description: "Describe the outcome without private names, credentials, logs, or guaranteed ROI claims."
+      placeholder: "A weekly markdown summary reviewed by a human before posting to Slack."
     validations:
-      required: false
-  - type: checkboxes
-    id: boundary-confirmation
+      required: true
+  - type: input
+    id: timeline
     attributes:
-      label: Boundary confirmation
+      label: Timing, if relevant
+      description: "Optional. Use broad timing only, not procurement/legal details."
+      placeholder: "This month / exploring / later"
+  - type: checkboxes
+    id: safety-confirmation
+    attributes:
+      label: Public-safety confirmation
       options:
-        - label: I understand this public issue cannot include secrets, private data, legal/procurement details, or payment/KYC/tax/bank information.
-          required: true
-        - label: I understand any custom work must be separately scoped and does not include guaranteed ROI claims.
+        - label: "I did not include secrets, private repo URLs, customer data, credentials, procurement/legal/KYC/tax/bank details, production logs, or confidential workflow exports."
           required: true

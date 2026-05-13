@@ -98,7 +98,7 @@ If you want the full template pack, customization, or a fixed-scope AI workflow 
 
 ## Public issue safety
 
-All issue templates are designed for sanitized, public context only. Do not post API keys, private repository URLs, customer data, internal logs with secrets, procurement/legal/KYC details, production credentials, or exploit details for a real private system. For the full public-support boundary, see `SECURITY.md`. If a paid engagement is scoped later, sensitive details should move to an approved private channel before implementation work begins.
+The guided issue forms are designed for sanitized, public context only and blank issues are disabled. Do not post API keys, private repository URLs, customer data, internal logs with secrets, procurement/legal/KYC details, production credentials, or exploit details for a real private system. For the full public-support boundary, see `SECURITY.md`. If a paid engagement is scoped later, sensitive details should move to an approved private channel before implementation work begins.
 
 ## Support boundary
 

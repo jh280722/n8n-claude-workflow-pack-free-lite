@@ -13,10 +13,10 @@ python3 scripts/validate_free_lite.py
 Expected result:
 
 ```text
-OK: Free Lite workflow JSON is valid and passes static public-safety checks.
+OK: Free Lite workflow JSON and public issue forms pass static public-safety checks.
 ```
 
-This confirms the workflow JSON parses, still includes the read-only GitHub snapshot nodes, keeps `GITHUB_TOKEN` optional, and does not include common posting/mutating integrations or secret-like markers.
+This confirms the workflow JSON parses, still includes the read-only GitHub snapshot nodes, keeps `GITHUB_TOKEN` optional, does not include common posting/mutating integrations or secret-like markers, and keeps public issue forms present with explicit no-secrets/no-private-data reminders.
 
 Also run the local preflight in `docs/free-lite-validation-preflight.md` before release/support decisions; it adds `git diff --check`, public-safe screenshot/example checks, and issue-response hygiene.
 
@@ -45,6 +45,7 @@ Do not request or post tokens, private repository URLs, customer data, productio
 Before a release or public support reply, confirm:
 
 - `SECURITY.md` is present and linked from `README.md`;
+- the four issue forms linked from `README.md` are present under `.github/ISSUE_TEMPLATE/` and keep blank issues disabled;
 - issue replies ask for sanitized symptoms only, not secrets or private repo details;
 - any security-sensitive finding is reproducible on `n8n-io/n8n` or a synthetic sample before it is discussed publicly;
 - custom private-repo integrations, credential review, or production debugging are not promised in the free public repo.
