@@ -65,6 +65,8 @@ python3 scripts/validate_free_lite.py
 
 The validator checks that the workflow JSON is parseable, still includes the expected read-only GitHub snapshot nodes, keeps `GITHUB_TOKEN` optional, and does not contain common posting/mutating integrations or secret-like markers.
 
+Before tagging a release or responding to public setup reports, also use the manual release/support checklist in `docs/public-release-checks.md`.
+
 ## Full pack / paid help
 
 The broader local pack currently contains additional workflows and support collateral for:
