@@ -20,6 +20,8 @@ This repository is the free public preview. It is intentionally useful on its ow
 - Paid implementation, invoicing, tax, KYC, and contract details are handled only after private scope approval.
 - Initial GitHub issues should contain sanitized context only.
 
+For a public-safe explanation of what to share before any paid/private scope exists, see `docs/upgrade-path-boundary.md`.
+
 ## How to inquire
 
 Use one of the issue templates:

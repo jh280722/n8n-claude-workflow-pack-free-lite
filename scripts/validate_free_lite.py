@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW_PATH = ROOT / "workflows" / "free-lite-github-weekly-snapshot.json"
 ISSUE_TEMPLATE_DIR = ROOT / ".github" / "ISSUE_TEMPLATE"
 TROUBLESHOOTING_FAQ_PATH = ROOT / "docs" / "free-lite-troubleshooting-faq.md"
+UPGRADE_BOUNDARY_PATH = ROOT / "docs" / "upgrade-path-boundary.md"
 
 FORBIDDEN_MUTATING_PATTERNS = [
     r"api\.github\.com/repos/[^`'\"\s]+/[^`'\"\s]+/issues/[^`'\"\s]+/comments",
@@ -92,6 +93,9 @@ def main() -> None:
     if not TROUBLESHOOTING_FAQ_PATH.exists():
         fail("missing public-safe troubleshooting FAQ")
 
+    if not UPGRADE_BOUNDARY_PATH.exists():
+        fail("missing public-safe upgrade path boundary")
+
     faq_text = TROUBLESHOOTING_FAQ_PATH.read_text(encoding="utf-8").lower()
     faq_required_markers = (
         "public repository",
@@ -107,6 +111,26 @@ def main() -> None:
         fail(
             "public-safe troubleshooting FAQ is missing marker(s): "
             f"{', '.join(missing_faq_markers)}"
+        )
+
+    upgrade_text = UPGRADE_BOUNDARY_PATH.read_text(encoding="utf-8").lower()
+    upgrade_required_markers = (
+        "checkout",
+        "payment",
+        "kyc",
+        "tax",
+        "credentials",
+        "private repository urls",
+        "customer data",
+        "no guaranteed roi",
+    )
+    missing_upgrade_markers = [
+        marker for marker in upgrade_required_markers if marker not in upgrade_text
+    ]
+    if missing_upgrade_markers:
+        fail(
+            "public-safe upgrade path boundary is missing marker(s): "
+            f"{', '.join(missing_upgrade_markers)}"
         )
 
     missing_templates = sorted(

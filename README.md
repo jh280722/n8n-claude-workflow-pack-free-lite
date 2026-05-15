@@ -38,6 +38,7 @@ If you try it and hit setup friction, open a public issue with:
 - Local validation preflight: `docs/free-lite-validation-preflight.md`
 - Copyable sanitized issue examples: `docs/public-safe-issue-examples.md`
 - Troubleshooting FAQ for import/API/output symptoms: `docs/free-lite-troubleshooting-faq.md`
+- Public-safe paid upgrade boundary: `docs/upgrade-path-boundary.md`
 - Public support/security boundary: `SECURITY.md`
 - No Claude/Anthropic API key required
 - No Slack webhook required
@@ -89,6 +90,8 @@ The broader local pack currently contains additional workflows and support colla
 - ROI snapshot calculation
 - Lead-fit/proposal triage
 - Pilot scope and quote drafting
+
+For a public-safe comparison of Free Lite, the draft template-pack options, and the audit/pilot path, see `PRICING.md` and `docs/upgrade-path-boundary.md`. These pages are informational only: they do not activate checkout, collect payment details, or request private credentials in public issues.
 
 If you want the full template pack, customization, or a fixed-scope AI workflow audit, open an inquiry here:
 

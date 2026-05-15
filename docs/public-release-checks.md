@@ -22,6 +22,8 @@ Also run the local preflight in `docs/free-lite-validation-preflight.md` before 
 
 Confirm the troubleshooting FAQ in `docs/free-lite-troubleshooting-faq.md` remains linked from `README.md` before replying to setup issues; it keeps common import/API/output debugging public-safe.
 
+Confirm `docs/upgrade-path-boundary.md` and `PRICING.md` remain linked before handling paid-pack or audit inquiries; they keep conversion questions public-safe without requesting checkout, payment, KYC/tax, credentials, private repository URLs, or customer data.
+
 ## 2. Manual import smoke test
 
 1. Import `workflows/free-lite-github-weekly-snapshot.json` into n8n.
