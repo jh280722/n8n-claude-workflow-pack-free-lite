@@ -16,6 +16,7 @@ WORKFLOW_PATH = ROOT / "workflows" / "free-lite-github-weekly-snapshot.json"
 ISSUE_TEMPLATE_DIR = ROOT / ".github" / "ISSUE_TEMPLATE"
 TROUBLESHOOTING_FAQ_PATH = ROOT / "docs" / "free-lite-troubleshooting-faq.md"
 UPGRADE_BOUNDARY_PATH = ROOT / "docs" / "upgrade-path-boundary.md"
+OUTPUT_REVIEW_GUIDE_PATH = ROOT / "docs" / "free-lite-output-review-guide.md"
 
 FORBIDDEN_MUTATING_PATTERNS = [
     r"api\.github\.com/repos/[^`'\"\s]+/[^`'\"\s]+/issues/[^`'\"\s]+/comments",
@@ -95,6 +96,8 @@ def main() -> None:
 
     if not UPGRADE_BOUNDARY_PATH.exists():
         fail("missing public-safe upgrade path boundary")
+    if not OUTPUT_REVIEW_GUIDE_PATH.exists():
+        fail("missing public-safe output review guide")
 
     faq_text = TROUBLESHOOTING_FAQ_PATH.read_text(encoding="utf-8").lower()
     faq_required_markers = (
@@ -131,6 +134,28 @@ def main() -> None:
         fail(
             "public-safe upgrade path boundary is missing marker(s): "
             f"{', '.join(missing_upgrade_markers)}"
+        )
+
+    output_guide_text = OUTPUT_REVIEW_GUIDE_PATH.read_text(encoding="utf-8").lower()
+    output_guide_required_markers = (
+        "public repository",
+        "sanitized",
+        "tokens",
+        "credentials",
+        "private repository urls",
+        "customer data",
+        "payment details",
+        "kyc/tax information",
+        "no guaranteed roi",
+        "samples/sample-output.md",
+    )
+    missing_output_guide_markers = [
+        marker for marker in output_guide_required_markers if marker not in output_guide_text
+    ]
+    if missing_output_guide_markers:
+        fail(
+            "public-safe output review guide is missing marker(s): "
+            f"{', '.join(missing_output_guide_markers)}"
         )
 
     missing_templates = sorted(

@@ -22,6 +22,8 @@ Also run the local preflight in `docs/free-lite-validation-preflight.md` before 
 
 Confirm the troubleshooting FAQ in `docs/free-lite-troubleshooting-faq.md` remains linked from `README.md` before replying to setup issues; it keeps common import/API/output debugging public-safe.
 
+Confirm `docs/free-lite-output-review-guide.md` remains linked from `README.md` before handling feedback about generated Markdown quality; it keeps output review tied to `samples/sample-output.md` and sanitized public issue details.
+
 Confirm `docs/upgrade-path-boundary.md` and `PRICING.md` remain linked before handling paid-pack or audit inquiries; they keep conversion questions public-safe without requesting checkout, payment, KYC/tax, credentials, private repository URLs, or customer data.
 
 ## 2. Manual import smoke test
@@ -31,6 +33,7 @@ Confirm `docs/upgrade-path-boundary.md` and `PRICING.md` remain linked before ha
 3. Use a public repository such as `n8n-io/n8n`.
 4. Run manually.
 5. Confirm the final node returns a `markdown` field with commits, merged PRs, closed issues, stale items, and Claude-ready review questions.
+6. Compare the generated Markdown with `samples/sample-output.md` and the output review scorecard in `docs/free-lite-output-review-guide.md` before requesting feedback.
 
 ## 3. Public support hygiene
 
@@ -53,6 +56,7 @@ Before a release or public support reply, confirm:
 - issue replies ask for sanitized symptoms only, not secrets or private repo details;
 - any security-sensitive finding is reproducible on `n8n-io/n8n` or a synthetic sample before it is discussed publicly;
 - setup troubleshooting links to `docs/free-lite-troubleshooting-faq.md` before asking for more details;
+- output quality feedback links to `docs/free-lite-output-review-guide.md` before asking for examples;
 - custom private-repo integrations, credential review, or production debugging are not promised in the free public repo.
 
 ## 5. Release note template
