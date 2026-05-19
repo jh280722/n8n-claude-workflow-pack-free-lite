@@ -18,6 +18,7 @@ TROUBLESHOOTING_FAQ_PATH = ROOT / "docs" / "free-lite-troubleshooting-faq.md"
 UPGRADE_BOUNDARY_PATH = ROOT / "docs" / "upgrade-path-boundary.md"
 OUTPUT_REVIEW_GUIDE_PATH = ROOT / "docs" / "free-lite-output-review-guide.md"
 FULL_PACK_LISTING_PATH = ROOT / "docs" / "full-pack-public-listing.md"
+BUYER_FIT_CHECKLIST_PATH = ROOT / "docs" / "buyer-fit-checklist.md"
 
 FORBIDDEN_MUTATING_PATTERNS = [
     r"api\.github\.com/repos/[^`'\"\s]+/[^`'\"\s]+/issues/[^`'\"\s]+/comments",
@@ -101,6 +102,8 @@ def main() -> None:
         fail("missing public-safe output review guide")
     if not FULL_PACK_LISTING_PATH.exists():
         fail("missing checkout-disabled full pack public listing preview")
+    if not BUYER_FIT_CHECKLIST_PATH.exists():
+        fail("missing public-safe buyer fit checklist")
 
     faq_text = TROUBLESHOOTING_FAQ_PATH.read_text(encoding="utf-8").lower()
     faq_required_markers = (
@@ -181,6 +184,29 @@ def main() -> None:
         fail(
             "full pack public listing preview is missing marker(s): "
             f"{', '.join(missing_listing_markers)}"
+        )
+
+    buyer_fit_text = BUYER_FIT_CHECKLIST_PATH.read_text(encoding="utf-8").lower()
+    buyer_fit_required_markers = (
+        "public-safe",
+        "checkout",
+        "payment",
+        "kyc",
+        "tax",
+        "bank",
+        "contracts",
+        "private repository urls",
+        "customer data",
+        "credentials",
+        "no guaranteed roi",
+    )
+    missing_buyer_fit_markers = [
+        marker for marker in buyer_fit_required_markers if marker not in buyer_fit_text
+    ]
+    if missing_buyer_fit_markers:
+        fail(
+            "public-safe buyer fit checklist is missing marker(s): "
+            f"{', '.join(missing_buyer_fit_markers)}"
         )
 
     missing_templates = sorted(
