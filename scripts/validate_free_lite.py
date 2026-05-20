@@ -19,6 +19,7 @@ UPGRADE_BOUNDARY_PATH = ROOT / "docs" / "upgrade-path-boundary.md"
 OUTPUT_REVIEW_GUIDE_PATH = ROOT / "docs" / "free-lite-output-review-guide.md"
 FULL_PACK_LISTING_PATH = ROOT / "docs" / "full-pack-public-listing.md"
 BUYER_FIT_CHECKLIST_PATH = ROOT / "docs" / "buyer-fit-checklist.md"
+PUBLIC_SHARE_KIT_PATH = ROOT / "docs" / "public-share-kit.md"
 
 FORBIDDEN_MUTATING_PATTERNS = [
     r"api\.github\.com/repos/[^`'\"\s]+/[^`'\"\s]+/issues/[^`'\"\s]+/comments",
@@ -104,6 +105,8 @@ def main() -> None:
         fail("missing checkout-disabled full pack public listing preview")
     if not BUYER_FIT_CHECKLIST_PATH.exists():
         fail("missing public-safe buyer fit checklist")
+    if not PUBLIC_SHARE_KIT_PATH.exists():
+        fail("missing public-safe share kit")
 
     faq_text = TROUBLESHOOTING_FAQ_PATH.read_text(encoding="utf-8").lower()
     faq_required_markers = (
@@ -207,6 +210,34 @@ def main() -> None:
         fail(
             "public-safe buyer fit checklist is missing marker(s): "
             f"{', '.join(missing_buyer_fit_markers)}"
+        )
+
+    share_kit_text = PUBLIC_SHARE_KIT_PATH.read_text(encoding="utf-8").lower()
+    share_kit_required_markers = (
+        "public-only",
+        "tokens",
+        "credentials",
+        "private repository urls",
+        "customer data",
+        "checkout/payment",
+        "kyc",
+        "tax",
+        "bank",
+        "contracts",
+        "dm",
+        "email",
+        "forms",
+        "private outreach",
+        "paid ads",
+        "no guaranteed roi",
+    )
+    missing_share_kit_markers = [
+        marker for marker in share_kit_required_markers if marker not in share_kit_text
+    ]
+    if missing_share_kit_markers:
+        fail(
+            "public-safe share kit is missing marker(s): "
+            f"{', '.join(missing_share_kit_markers)}"
         )
 
     missing_templates = sorted(

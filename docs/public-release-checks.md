@@ -24,7 +24,7 @@ Confirm the troubleshooting FAQ in `docs/free-lite-troubleshooting-faq.md` remai
 
 Confirm `docs/free-lite-output-review-guide.md` remains linked from `README.md` before handling feedback about generated Markdown quality; it keeps output review tied to `samples/sample-output.md` and sanitized public issue details.
 
-Confirm `docs/upgrade-path-boundary.md`, `docs/full-pack-public-listing.md`, `docs/buyer-fit-checklist.md`, and `PRICING.md` remain linked before handling paid-pack or audit inquiries; they keep conversion questions public-safe without requesting checkout, payment, KYC/tax, credentials, private repository URLs, or customer data.
+Confirm `docs/upgrade-path-boundary.md`, `docs/full-pack-public-listing.md`, `docs/buyer-fit-checklist.md`, `docs/public-share-kit.md`, and `PRICING.md` remain linked before handling paid-pack, audit, or public-only outreach questions; they keep conversion and sharing questions public-safe without requesting checkout, payment, KYC/tax, credentials, private repository URLs, customer data, or private outreach.
 
 ## 2. Manual import smoke test
 

@@ -72,5 +72,6 @@ A public listing preview like this can stay public-safe, but the following remai
 - Pricing and paid options: `../PRICING.md`
 - Public-safe upgrade path boundary: `upgrade-path-boundary.md`
 - Buyer fit checklist: `buyer-fit-checklist.md`
+- Public share kit: `public-share-kit.md`
 - Output review guide: `free-lite-output-review-guide.md`
 - Public release/support checks: `public-release-checks.md`
