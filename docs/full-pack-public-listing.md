@@ -47,7 +47,7 @@ A good public inquiry can answer these without sensitive details:
 
 Use the template/customization inquiry form for sanitized public pre-qualification: <https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=workflow-pack-inquiry.yml>
 
-For a more explicit fit/no-fit checklist before opening an issue, see `buyer-fit-checklist.md`. It helps buyers decide whether the draft pack, audit, or later pilot is appropriate without posting tokens, private repository URLs, customer data, checkout/payment details, KYC/tax/bank information, contracts, or guaranteed ROI requirements.
+For a more explicit fit/no-fit checklist before opening an issue, see `buyer-fit-checklist.md`. If the buyer is unsure which public issue form to use, send them to `public-inquiry-router.md`. These pages help buyers decide whether the draft pack, audit, or later pilot is appropriate without posting tokens, private repository URLs, customer data, checkout/payment details, KYC/tax/bank information, contracts, or guaranteed ROI requirements.
 
 ## Public-safety boundary
 
@@ -73,5 +73,6 @@ A public listing preview like this can stay public-safe, but the following remai
 - Public-safe upgrade path boundary: `upgrade-path-boundary.md`
 - Buyer fit checklist: `buyer-fit-checklist.md`
 - Public share kit: `public-share-kit.md`
+- Public inquiry router: `public-inquiry-router.md`
 - Output review guide: `free-lite-output-review-guide.md`
 - Public release/support checks: `public-release-checks.md`

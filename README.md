@@ -43,6 +43,7 @@ If you try it and hit setup friction, open a public issue with:
 - Checkout-disabled full pack public listing preview: `docs/full-pack-public-listing.md`
 - Buyer fit checklist for the draft full pack: `docs/buyer-fit-checklist.md`
 - Public share kit for safe public-only outreach: `docs/public-share-kit.md`
+- Public inquiry router for choosing the right public issue form: `docs/public-inquiry-router.md`
 - Public support/security boundary: `SECURITY.md`
 - No Claude/Anthropic API key required
 - No Slack webhook required
@@ -96,7 +97,7 @@ The broader local pack currently contains additional workflows and support colla
 - Lead-fit/proposal triage
 - Pilot scope and quote drafting
 
-For a public-safe comparison of Free Lite, the draft template-pack options, and the audit/pilot path, see `PRICING.md`, `docs/upgrade-path-boundary.md`, the checkout-disabled listing preview in `docs/full-pack-public-listing.md`, the buyer fit checklist in `docs/buyer-fit-checklist.md`, and the public share kit in `docs/public-share-kit.md`. These pages are informational only: they do not activate checkout, collect payment details, or request private credentials in public issues.
+For a public-safe comparison of Free Lite, the draft template-pack options, and the audit/pilot path, see `PRICING.md`, `docs/upgrade-path-boundary.md`, the checkout-disabled listing preview in `docs/full-pack-public-listing.md`, the buyer fit checklist in `docs/buyer-fit-checklist.md`, the public share kit in `docs/public-share-kit.md`, and the public inquiry router in `docs/public-inquiry-router.md`. These pages are informational only: they do not activate checkout, collect payment details, or request private credentials in public issues.
 
 If you want the full template pack, customization, or a fixed-scope AI workflow audit, open an inquiry here:
 

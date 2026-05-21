@@ -41,6 +41,7 @@ Public issue safety: use public repos or sanitized examples only. Do not post to
 | “Is the output useful enough?” | `docs/free-lite-output-review-guide.md` | Gives review criteria without needing private examples. |
 | “Would the full pack fit us?” | `docs/buyer-fit-checklist.md` | Helps qualify fit before posting a public issue. |
 | “What would paid options include?” | `docs/full-pack-public-listing.md` and `PRICING.md` | Shows checkout-disabled draft options without payment activation. |
+| “Which public issue form should I use?” | `docs/public-inquiry-router.md` | Routes setup, feedback, workflow-pack, and audit/pilot questions without private outreach. |
 
 ## Hard boundaries
 

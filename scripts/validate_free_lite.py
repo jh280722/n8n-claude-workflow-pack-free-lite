@@ -20,6 +20,7 @@ OUTPUT_REVIEW_GUIDE_PATH = ROOT / "docs" / "free-lite-output-review-guide.md"
 FULL_PACK_LISTING_PATH = ROOT / "docs" / "full-pack-public-listing.md"
 BUYER_FIT_CHECKLIST_PATH = ROOT / "docs" / "buyer-fit-checklist.md"
 PUBLIC_SHARE_KIT_PATH = ROOT / "docs" / "public-share-kit.md"
+PUBLIC_INQUIRY_ROUTER_PATH = ROOT / "docs" / "public-inquiry-router.md"
 
 FORBIDDEN_MUTATING_PATTERNS = [
     r"api\.github\.com/repos/[^`'\"\s]+/[^`'\"\s]+/issues/[^`'\"\s]+/comments",
@@ -107,6 +108,8 @@ def main() -> None:
         fail("missing public-safe buyer fit checklist")
     if not PUBLIC_SHARE_KIT_PATH.exists():
         fail("missing public-safe share kit")
+    if not PUBLIC_INQUIRY_ROUTER_PATH.exists():
+        fail("missing public-safe inquiry router")
 
     faq_text = TROUBLESHOOTING_FAQ_PATH.read_text(encoding="utf-8").lower()
     faq_required_markers = (
@@ -238,6 +241,38 @@ def main() -> None:
         fail(
             "public-safe share kit is missing marker(s): "
             f"{', '.join(missing_share_kit_markers)}"
+        )
+
+    inquiry_router_text = PUBLIC_INQUIRY_ROUTER_PATH.read_text(encoding="utf-8").lower()
+    inquiry_router_required_markers = (
+        "public-only",
+        "tokens",
+        "credentials",
+        "private repository urls",
+        "customer data",
+        "checkout/payment",
+        "kyc",
+        "tax",
+        "bank",
+        "contracts",
+        "dm",
+        "email",
+        "forms",
+        "private outreach",
+        "paid ads",
+        "no guaranteed roi",
+        "free-lite-setup.yml",
+        "free-lite-feedback.yml",
+        "workflow-pack-inquiry.yml",
+        "audit-pilot-inquiry.yml",
+    )
+    missing_inquiry_router_markers = [
+        marker for marker in inquiry_router_required_markers if marker not in inquiry_router_text
+    ]
+    if missing_inquiry_router_markers:
+        fail(
+            "public-safe inquiry router is missing marker(s): "
+            f"{', '.join(missing_inquiry_router_markers)}"
         )
 
     missing_templates = sorted(
