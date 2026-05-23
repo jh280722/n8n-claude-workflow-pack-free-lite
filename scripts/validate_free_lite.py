@@ -21,6 +21,7 @@ FULL_PACK_LISTING_PATH = ROOT / "docs" / "full-pack-public-listing.md"
 BUYER_FIT_CHECKLIST_PATH = ROOT / "docs" / "buyer-fit-checklist.md"
 PUBLIC_SHARE_KIT_PATH = ROOT / "docs" / "public-share-kit.md"
 PUBLIC_INQUIRY_ROUTER_PATH = ROOT / "docs" / "public-inquiry-router.md"
+PUBLIC_PROOF_INDEX_PATH = ROOT / "docs" / "public-proof-index.md"
 
 FORBIDDEN_MUTATING_PATTERNS = [
     r"api\.github\.com/repos/[^`'\"\s]+/[^`'\"\s]+/issues/[^`'\"\s]+/comments",
@@ -110,6 +111,8 @@ def main() -> None:
         fail("missing public-safe share kit")
     if not PUBLIC_INQUIRY_ROUTER_PATH.exists():
         fail("missing public-safe inquiry router")
+    if not PUBLIC_PROOF_INDEX_PATH.exists():
+        fail("missing public-safe proof index")
 
     faq_text = TROUBLESHOOTING_FAQ_PATH.read_text(encoding="utf-8").lower()
     faq_required_markers = (
@@ -233,6 +236,7 @@ def main() -> None:
         "private outreach",
         "paid ads",
         "no guaranteed roi",
+        "docs/public-proof-index.md",
     )
     missing_share_kit_markers = [
         marker for marker in share_kit_required_markers if marker not in share_kit_text
@@ -273,6 +277,32 @@ def main() -> None:
         fail(
             "public-safe inquiry router is missing marker(s): "
             f"{', '.join(missing_inquiry_router_markers)}"
+        )
+
+    proof_index_text = PUBLIC_PROOF_INDEX_PATH.read_text(encoding="utf-8").lower()
+    proof_index_required_markers = (
+        "public-only",
+        "checkout/payment",
+        "kyc",
+        "tax",
+        "bank",
+        "contracts",
+        "private repository urls",
+        "customer data",
+        "credentials",
+        "dm/email/forms",
+        "private outreach",
+        "paid ads",
+        "no guaranteed roi",
+        "docs/public-inquiry-router.md",
+    )
+    missing_proof_index_markers = [
+        marker for marker in proof_index_required_markers if marker not in proof_index_text
+    ]
+    if missing_proof_index_markers:
+        fail(
+            "public-safe proof index is missing marker(s): "
+            f"{', '.join(missing_proof_index_markers)}"
         )
 
     missing_templates = sorted(
