@@ -11,6 +11,7 @@ This is a public-only proof map. It points to public files that can be checked i
 | “Is there an importable free workflow?” | `workflows/free-lite-github-weekly-snapshot.json` | The Free Lite workflow is included in this public repo. |
 | “Does it avoid posting or mutating by default?” | `scripts/validate_free_lite.py` and `docs/public-release-checks.md` | Static checks guard against common Slack/Notion/GitHub posting or write patterns in the Free Lite workflow. |
 | “What should the output look like?” | `samples/sample-output.md` and `docs/free-lite-output-review-guide.md` | The public sample shows Markdown review output only; it is not a production guarantee. |
+| “What should I do after a test run?” | `docs/public-evaluation-scorecard.md` | A 10-minute scorecard routes public-safe next steps without checkout/payment, private data, or guaranteed ROI claims. |
 | “Can I test it safely?” | `docs/free-lite-demo-runbook.md` and `docs/free-lite-validation-preflight.md` | Start with a public repository or synthetic sample and review the Markdown before adapting anything. |
 | “How do public support or feedback reports stay safe?” | `.github/ISSUE_TEMPLATE/`, `docs/public-inquiry-router.md`, `docs/public-safe-issue-examples.md`, and `SECURITY.md` | Public issues should include sanitized setup or feedback details only. |
 | “What would the paid/full pack include?” | `docs/full-pack-public-listing.md`, `PRICING.md`, and `docs/buyer-fit-checklist.md` | These pages are a checkout-disabled preview and fit checklist, not active checkout or payment capture. |
@@ -36,4 +37,4 @@ Do not ask for or post tokens, API keys, credentials, private repository URLs, c
 
 ## Best next public link
 
-If the reader is not sure what to check next, send them to the public inquiry router: `docs/public-inquiry-router.md`.
+If the reader has already run Free Lite, send them to the public evaluation scorecard: `docs/public-evaluation-scorecard.md`. If they are not sure which issue form to use, send them to the public inquiry router: `docs/public-inquiry-router.md`.

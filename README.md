@@ -42,6 +42,7 @@ If you try it and hit setup friction, open a public issue with:
 - Public-safe paid upgrade boundary: `docs/upgrade-path-boundary.md`
 - Checkout-disabled full pack public listing preview: `docs/full-pack-public-listing.md`
 - Buyer fit checklist for the draft full pack: `docs/buyer-fit-checklist.md`
+- Public evaluation scorecard for deciding the next safe step after a test run: `docs/public-evaluation-scorecard.md`
 - Public share kit for safe public-only outreach: `docs/public-share-kit.md`
 - Public inquiry router for choosing the right public issue form: `docs/public-inquiry-router.md`
 - Public proof index for checking public claims without private data: `docs/public-proof-index.md`
@@ -98,7 +99,7 @@ The broader local pack currently contains additional workflows and support colla
 - Lead-fit/proposal triage
 - Pilot scope and quote drafting
 
-For a public-safe comparison of Free Lite, the draft template-pack options, and the audit/pilot path, see `PRICING.md`, `docs/upgrade-path-boundary.md`, the checkout-disabled listing preview in `docs/full-pack-public-listing.md`, the buyer fit checklist in `docs/buyer-fit-checklist.md`, the public share kit in `docs/public-share-kit.md`, the public inquiry router in `docs/public-inquiry-router.md`, and the public proof index in `docs/public-proof-index.md`. These pages are informational only: they do not activate checkout, collect payment details, or request private credentials in public issues.
+For a public-safe comparison of Free Lite, the draft template-pack options, and the audit/pilot path, see `PRICING.md`, `docs/upgrade-path-boundary.md`, the checkout-disabled listing preview in `docs/full-pack-public-listing.md`, the buyer fit checklist in `docs/buyer-fit-checklist.md`, the public evaluation scorecard in `docs/public-evaluation-scorecard.md`, the public share kit in `docs/public-share-kit.md`, the public inquiry router in `docs/public-inquiry-router.md`, and the public proof index in `docs/public-proof-index.md`. These pages are informational only: they do not activate checkout, collect payment details, or request private credentials in public issues.
 
 If you want the full template pack, customization, or a fixed-scope AI workflow audit, open an inquiry here:
 

@@ -20,6 +20,7 @@ OUTPUT_REVIEW_GUIDE_PATH = ROOT / "docs" / "free-lite-output-review-guide.md"
 FULL_PACK_LISTING_PATH = ROOT / "docs" / "full-pack-public-listing.md"
 BUYER_FIT_CHECKLIST_PATH = ROOT / "docs" / "buyer-fit-checklist.md"
 PUBLIC_SHARE_KIT_PATH = ROOT / "docs" / "public-share-kit.md"
+PUBLIC_EVALUATION_SCORECARD_PATH = ROOT / "docs" / "public-evaluation-scorecard.md"
 PUBLIC_INQUIRY_ROUTER_PATH = ROOT / "docs" / "public-inquiry-router.md"
 PUBLIC_PROOF_INDEX_PATH = ROOT / "docs" / "public-proof-index.md"
 
@@ -109,6 +110,8 @@ def main() -> None:
         fail("missing public-safe buyer fit checklist")
     if not PUBLIC_SHARE_KIT_PATH.exists():
         fail("missing public-safe share kit")
+    if not PUBLIC_EVALUATION_SCORECARD_PATH.exists():
+        fail("missing public-safe evaluation scorecard")
     if not PUBLIC_INQUIRY_ROUTER_PATH.exists():
         fail("missing public-safe inquiry router")
     if not PUBLIC_PROOF_INDEX_PATH.exists():
@@ -245,6 +248,35 @@ def main() -> None:
         fail(
             "public-safe share kit is missing marker(s): "
             f"{', '.join(missing_share_kit_markers)}"
+        )
+
+    evaluation_scorecard_text = PUBLIC_EVALUATION_SCORECARD_PATH.read_text(encoding="utf-8").lower()
+    evaluation_scorecard_required_markers = (
+        "public-only",
+        "checkout/payment",
+        "payment details",
+        "payout",
+        "kyc",
+        "tax",
+        "bank",
+        "contracts",
+        "tokens",
+        "credentials",
+        "private repository urls",
+        "customer data",
+        "dm/email/forms",
+        "private outreach",
+        "paid ads",
+        "guaranteed roi",
+        "docs/public-inquiry-router.md",
+    )
+    missing_evaluation_scorecard_markers = [
+        marker for marker in evaluation_scorecard_required_markers if marker not in evaluation_scorecard_text
+    ]
+    if missing_evaluation_scorecard_markers:
+        fail(
+            "public-safe evaluation scorecard is missing marker(s): "
+            f"{', '.join(missing_evaluation_scorecard_markers)}"
         )
 
     inquiry_router_text = PUBLIC_INQUIRY_ROUTER_PATH.read_text(encoding="utf-8").lower()
