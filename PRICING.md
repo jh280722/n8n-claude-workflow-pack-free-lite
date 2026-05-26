@@ -20,7 +20,7 @@ This repository is the free public preview. It is intentionally useful on its ow
 - Paid implementation, invoicing, tax, KYC, and contract details are handled only after private scope approval.
 - Initial GitHub issues should contain sanitized context only.
 
-For a public-safe explanation of what to share before any paid/private scope exists, see `docs/upgrade-path-boundary.md`. For a checkout-disabled public listing preview of the broader pack, see `docs/full-pack-public-listing.md`. To decide whether an inquiry is a fit before posting public details, use `docs/buyer-fit-checklist.md`.
+For a public-safe explanation of what to share before any paid/private scope exists, see `docs/upgrade-path-boundary.md`. For a checkout-disabled public listing preview of the broader pack, see `docs/full-pack-public-listing.md`. To decide whether an inquiry is a fit before posting public details, use `docs/buyer-fit-checklist.md`. To estimate rough value without posting private numbers or guaranteed ROI claims, use `docs/public-roi-assumption-worksheet.md`.
 
 ## How to inquire
 

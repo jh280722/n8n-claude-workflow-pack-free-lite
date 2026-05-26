@@ -23,6 +23,7 @@ PUBLIC_SHARE_KIT_PATH = ROOT / "docs" / "public-share-kit.md"
 PUBLIC_EVALUATION_SCORECARD_PATH = ROOT / "docs" / "public-evaluation-scorecard.md"
 PUBLIC_INQUIRY_ROUTER_PATH = ROOT / "docs" / "public-inquiry-router.md"
 PUBLIC_PROOF_INDEX_PATH = ROOT / "docs" / "public-proof-index.md"
+PUBLIC_ROI_ASSUMPTION_WORKSHEET_PATH = ROOT / "docs" / "public-roi-assumption-worksheet.md"
 
 FORBIDDEN_MUTATING_PATTERNS = [
     r"api\.github\.com/repos/[^`'\"\s]+/[^`'\"\s]+/issues/[^`'\"\s]+/comments",
@@ -116,6 +117,8 @@ def main() -> None:
         fail("missing public-safe inquiry router")
     if not PUBLIC_PROOF_INDEX_PATH.exists():
         fail("missing public-safe proof index")
+    if not PUBLIC_ROI_ASSUMPTION_WORKSHEET_PATH.exists():
+        fail("missing public-safe ROI assumption worksheet")
 
     faq_text = TROUBLESHOOTING_FAQ_PATH.read_text(encoding="utf-8").lower()
     faq_required_markers = (
@@ -335,6 +338,34 @@ def main() -> None:
         fail(
             "public-safe proof index is missing marker(s): "
             f"{', '.join(missing_proof_index_markers)}"
+        )
+
+    roi_assumption_text = PUBLIC_ROI_ASSUMPTION_WORKSHEET_PATH.read_text(encoding="utf-8").lower()
+    roi_assumption_required_markers = (
+        "public-only",
+        "checkout/payment details",
+        "payout",
+        "kyc",
+        "tax",
+        "bank",
+        "contracts",
+        "tokens",
+        "credentials",
+        "private repository urls",
+        "customer data",
+        "dm/email/forms",
+        "private outreach",
+        "paid ads",
+        "guaranteed roi",
+        "docs/public-inquiry-router.md",
+    )
+    missing_roi_assumption_markers = [
+        marker for marker in roi_assumption_required_markers if marker not in roi_assumption_text
+    ]
+    if missing_roi_assumption_markers:
+        fail(
+            "public-safe ROI assumption worksheet is missing marker(s): "
+            f"{', '.join(missing_roi_assumption_markers)}"
         )
 
     missing_templates = sorted(
