@@ -24,6 +24,7 @@ PUBLIC_EVALUATION_SCORECARD_PATH = ROOT / "docs" / "public-evaluation-scorecard.
 PUBLIC_INQUIRY_ROUTER_PATH = ROOT / "docs" / "public-inquiry-router.md"
 PUBLIC_PROOF_INDEX_PATH = ROOT / "docs" / "public-proof-index.md"
 PUBLIC_ROI_ASSUMPTION_WORKSHEET_PATH = ROOT / "docs" / "public-roi-assumption-worksheet.md"
+PUBLIC_SAFE_ONBOARDING_PLAYBOOK_PATH = ROOT / "docs" / "public-safe-onboarding-playbook.md"
 
 FORBIDDEN_MUTATING_PATTERNS = [
     r"api\.github\.com/repos/[^`'\"\s]+/[^`'\"\s]+/issues/[^`'\"\s]+/comments",
@@ -119,6 +120,8 @@ def main() -> None:
         fail("missing public-safe proof index")
     if not PUBLIC_ROI_ASSUMPTION_WORKSHEET_PATH.exists():
         fail("missing public-safe ROI assumption worksheet")
+    if not PUBLIC_SAFE_ONBOARDING_PLAYBOOK_PATH.exists():
+        fail("missing public-safe onboarding playbook")
 
     faq_text = TROUBLESHOOTING_FAQ_PATH.read_text(encoding="utf-8").lower()
     faq_required_markers = (
@@ -367,6 +370,44 @@ def main() -> None:
             "public-safe ROI assumption worksheet is missing marker(s): "
             f"{', '.join(missing_roi_assumption_markers)}"
         )
+
+    onboarding_playbook_text = PUBLIC_SAFE_ONBOARDING_PLAYBOOK_PATH.read_text(encoding="utf-8").lower()
+    onboarding_playbook_required_markers = (
+        "public-only",
+        "checkout/payment",
+        "kyc",
+        "tax",
+        "bank",
+        "contracts",
+        "tokens",
+        "credentials",
+        "private repository urls",
+        "customer data",
+        "dm/email/forms",
+        "private outreach",
+        "paid ads",
+        "guaranteed roi",
+        "docs/public-inquiry-router.md",
+    )
+    missing_onboarding_playbook_markers = [
+        marker for marker in onboarding_playbook_required_markers if marker not in onboarding_playbook_text
+    ]
+    if missing_onboarding_playbook_markers:
+        fail(
+            "public-safe onboarding playbook is missing marker(s): "
+            f"{', '.join(missing_onboarding_playbook_markers)}"
+        )
+
+    cross_link_paths = {
+        "README.md": ROOT / "README.md",
+        "PRICING.md": ROOT / "PRICING.md",
+        "docs/full-pack-public-listing.md": FULL_PACK_LISTING_PATH,
+        "docs/public-release-checks.md": ROOT / "docs" / "public-release-checks.md",
+    }
+    for label, path in cross_link_paths.items():
+        text = path.read_text(encoding="utf-8").lower()
+        if "docs/public-safe-onboarding-playbook.md" not in text and "public-safe-onboarding-playbook.md" not in text:
+            fail(f"{label} is missing the public-safe onboarding playbook link")
 
     missing_templates = sorted(
         name for name in REQUIRED_ISSUE_TEMPLATES if not (ISSUE_TEMPLATE_DIR / name).exists()
