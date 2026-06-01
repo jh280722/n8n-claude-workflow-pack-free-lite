@@ -25,6 +25,7 @@ PUBLIC_INQUIRY_ROUTER_PATH = ROOT / "docs" / "public-inquiry-router.md"
 PUBLIC_PROOF_INDEX_PATH = ROOT / "docs" / "public-proof-index.md"
 PUBLIC_ROI_ASSUMPTION_WORKSHEET_PATH = ROOT / "docs" / "public-roi-assumption-worksheet.md"
 PUBLIC_SAFE_ONBOARDING_PLAYBOOK_PATH = ROOT / "docs" / "public-safe-onboarding-playbook.md"
+PUBLIC_IMPLEMENTATION_SCOPE_MENU_PATH = ROOT / "docs" / "public-implementation-scope-menu.md"
 
 FORBIDDEN_MUTATING_PATTERNS = [
     r"api\.github\.com/repos/[^`'\"\s]+/[^`'\"\s]+/issues/[^`'\"\s]+/comments",
@@ -122,6 +123,8 @@ def main() -> None:
         fail("missing public-safe ROI assumption worksheet")
     if not PUBLIC_SAFE_ONBOARDING_PLAYBOOK_PATH.exists():
         fail("missing public-safe onboarding playbook")
+    if not PUBLIC_IMPLEMENTATION_SCOPE_MENU_PATH.exists():
+        fail("missing public implementation scope menu")
 
     faq_text = TROUBLESHOOTING_FAQ_PATH.read_text(encoding="utf-8").lower()
     faq_required_markers = (
@@ -398,6 +401,36 @@ def main() -> None:
             f"{', '.join(missing_onboarding_playbook_markers)}"
         )
 
+    implementation_scope_menu_text = PUBLIC_IMPLEMENTATION_SCOPE_MENU_PATH.read_text(encoding="utf-8").lower()
+    implementation_scope_menu_required_markers = (
+        "public-only",
+        "checkout/payment",
+        "payout",
+        "kyc",
+        "tax",
+        "bank",
+        "contracts",
+        "tokens",
+        "credentials",
+        "private repository urls",
+        "customer data",
+        "dm/email/forms",
+        "private outreach",
+        "paid ads",
+        "guaranteed roi",
+        "docs/public-inquiry-router.md",
+    )
+    missing_implementation_scope_menu_markers = [
+        marker
+        for marker in implementation_scope_menu_required_markers
+        if marker not in implementation_scope_menu_text
+    ]
+    if missing_implementation_scope_menu_markers:
+        fail(
+            "public implementation scope menu is missing marker(s): "
+            f"{', '.join(missing_implementation_scope_menu_markers)}"
+        )
+
     cross_link_paths = {
         "README.md": ROOT / "README.md",
         "PRICING.md": ROOT / "PRICING.md",
@@ -408,6 +441,8 @@ def main() -> None:
         text = path.read_text(encoding="utf-8").lower()
         if "docs/public-safe-onboarding-playbook.md" not in text and "public-safe-onboarding-playbook.md" not in text:
             fail(f"{label} is missing the public-safe onboarding playbook link")
+        if "docs/public-implementation-scope-menu.md" not in text and "public-implementation-scope-menu.md" not in text:
+            fail(f"{label} is missing the public implementation scope menu link")
 
     missing_templates = sorted(
         name for name in REQUIRED_ISSUE_TEMPLATES if not (ISSUE_TEMPLATE_DIR / name).exists()

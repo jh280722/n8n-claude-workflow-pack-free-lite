@@ -48,6 +48,7 @@ If you try it and hit setup friction, open a public issue with:
 - Public proof index for checking public claims without private data: `docs/public-proof-index.md`
 - Public ROI assumption worksheet for rough, no-private-data value checks: `docs/public-roi-assumption-worksheet.md`
 - Public-safe onboarding playbook for guiding your entire setup and transition journey: `docs/public-safe-onboarding-playbook.md`
+- Public implementation scope menu for choosing Starter/Pro/Audit/Pilot paths without private data: `docs/public-implementation-scope-menu.md`
 - Public support/security boundary: `SECURITY.md`
 - No Claude/Anthropic API key required
 - No Slack webhook required
@@ -101,7 +102,7 @@ The broader local pack currently contains additional workflows and support colla
 - Lead-fit/proposal triage
 - Pilot scope and quote drafting
 
-For a public-safe comparison of Free Lite, the draft template-pack options, and the audit/pilot path, see `PRICING.md`, `docs/upgrade-path-boundary.md`, the checkout-disabled listing preview in `docs/full-pack-public-listing.md`, the buyer fit checklist in `docs/buyer-fit-checklist.md`, the public evaluation scorecard in `docs/public-evaluation-scorecard.md`, the public share kit in `docs/public-share-kit.md`, the public inquiry router in `docs/public-inquiry-router.md`, the public proof index in `docs/public-proof-index.md`, the public ROI assumption worksheet in `docs/public-roi-assumption-worksheet.md`, and the public-safe onboarding playbook in `docs/public-safe-onboarding-playbook.md`. These pages are informational only: they do not activate checkout, collect payment details, or request private credentials in public issues.
+For a public-safe comparison of Free Lite, the draft template-pack options, and the audit/pilot path, see `PRICING.md`, `docs/upgrade-path-boundary.md`, the checkout-disabled listing preview in `docs/full-pack-public-listing.md`, the buyer fit checklist in `docs/buyer-fit-checklist.md`, the public evaluation scorecard in `docs/public-evaluation-scorecard.md`, the public share kit in `docs/public-share-kit.md`, the public inquiry router in `docs/public-inquiry-router.md`, the public proof index in `docs/public-proof-index.md`, the public ROI assumption worksheet in `docs/public-roi-assumption-worksheet.md`, the public-safe onboarding playbook in `docs/public-safe-onboarding-playbook.md`, and the public implementation scope menu in `docs/public-implementation-scope-menu.md`. These pages are informational only: they do not activate checkout, collect payment details, or request private credentials in public issues.
 
 If you want the full template pack, customization, or a fixed-scope AI workflow audit, open an inquiry here:
 
