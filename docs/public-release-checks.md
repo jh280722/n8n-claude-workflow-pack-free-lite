@@ -22,9 +22,11 @@ Also run the local preflight in `docs/free-lite-validation-preflight.md` before 
 
 Confirm the troubleshooting FAQ in `docs/free-lite-troubleshooting-faq.md` remains linked from `README.md` before replying to setup issues; it keeps common import/API/output debugging public-safe.
 
+Confirm `docs/free-lite-download-first-run-guide.md` remains linked from `README.md` before handling release ZIP download/setup questions; it routes a downloader from local unzip to one safe public-repo run before any paid or private scope.
+
 Confirm `docs/free-lite-output-review-guide.md` remains linked from `README.md` before handling feedback about generated Markdown quality; it keeps output review tied to `samples/sample-output.md` and sanitized public issue details.
 
-Confirm `docs/upgrade-path-boundary.md`, `docs/full-pack-public-listing.md`, `docs/buyer-fit-checklist.md`, `docs/public-evaluation-scorecard.md`, `docs/public-share-kit.md`, `docs/public-inquiry-router.md`, `docs/public-proof-index.md`, `docs/public-roi-assumption-worksheet.md`, `docs/public-safe-onboarding-playbook.md`, `docs/public-implementation-scope-menu.md`, and `PRICING.md` remain linked before handling paid-pack, audit, evaluation, proof, value-estimate, onboarding, scope-selection, or public-only outreach questions; they keep conversion, scorecard, inquiry routing, proof requests, rough ROI assumptions, onboarding, scope-selection, and sharing questions public-safe without requesting checkout, payment, KYC/tax, credentials, private repository URLs, customer data, or private outreach.
+Confirm `docs/upgrade-path-boundary.md`, `docs/full-pack-public-listing.md`, `docs/buyer-fit-checklist.md`, `docs/public-evaluation-scorecard.md`, `docs/public-share-kit.md`, `docs/public-inquiry-router.md`, `docs/public-proof-index.md`, `docs/public-roi-assumption-worksheet.md`, `docs/public-safe-onboarding-playbook.md`, `docs/public-implementation-scope-menu.md`, `docs/free-lite-download-first-run-guide.md`, and `PRICING.md` remain linked before handling paid-pack, audit, evaluation, proof, value-estimate, onboarding, scope-selection, release-download, or public-only outreach questions; they keep conversion, scorecard, inquiry routing, proof requests, rough ROI assumptions, onboarding, scope-selection, first-run download, and sharing questions public-safe without requesting checkout, payment, KYC/tax, credentials, private repository URLs, customer data, or private outreach.
 
 ## 2. Manual import smoke test
 

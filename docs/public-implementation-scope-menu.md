@@ -8,6 +8,7 @@ It is intentionally checkout/payment-disabled: it does not collect payment detai
 
 | Public signal you can share safely | Better-fit lane | Public-only next action |
 |---|---|---|
+| “I downloaded the release ZIP and have not run it yet.” | Free Lite first-run path | Use `docs/free-lite-download-first-run-guide.md` to complete one public-repo run before opening a setup, feedback, or paid-scope issue. |
 | “I imported Free Lite and want more workflow templates.” | Starter template pack | Open the template/customization issue with n8n version, public/synthetic test context, and the workflow families you want. |
 | “I want reusable setup notes, demos, and adaptation worksheets.” | Pro template pack | Add public-safe constraints: self-hosted vs cloud n8n, target integrations, and which docs/examples you need. |
 | “I am not sure what to automate first.” | AI Workflow Audit beta | Share sanitized workflow categories, team size range, current manual-review bottleneck, and what a useful backlog would include. |

@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW_PATH = ROOT / "workflows" / "free-lite-github-weekly-snapshot.json"
 ISSUE_TEMPLATE_DIR = ROOT / ".github" / "ISSUE_TEMPLATE"
 TROUBLESHOOTING_FAQ_PATH = ROOT / "docs" / "free-lite-troubleshooting-faq.md"
+DOWNLOAD_FIRST_RUN_GUIDE_PATH = ROOT / "docs" / "free-lite-download-first-run-guide.md"
 UPGRADE_BOUNDARY_PATH = ROOT / "docs" / "upgrade-path-boundary.md"
 OUTPUT_REVIEW_GUIDE_PATH = ROOT / "docs" / "free-lite-output-review-guide.md"
 FULL_PACK_LISTING_PATH = ROOT / "docs" / "full-pack-public-listing.md"
@@ -102,6 +103,8 @@ def main() -> None:
 
     if not TROUBLESHOOTING_FAQ_PATH.exists():
         fail("missing public-safe troubleshooting FAQ")
+    if not DOWNLOAD_FIRST_RUN_GUIDE_PATH.exists():
+        fail("missing public-safe download-to-first-run guide")
 
     if not UPGRADE_BOUNDARY_PATH.exists():
         fail("missing public-safe upgrade path boundary")
@@ -141,6 +144,36 @@ def main() -> None:
         fail(
             "public-safe troubleshooting FAQ is missing marker(s): "
             f"{', '.join(missing_faq_markers)}"
+        )
+
+    download_first_run_guide_text = DOWNLOAD_FIRST_RUN_GUIDE_PATH.read_text(encoding="utf-8").lower()
+    download_first_run_guide_required_markers = (
+        "public-only",
+        "checkout/payment",
+        "payout",
+        "kyc",
+        "tax",
+        "bank",
+        "contracts",
+        "tokens",
+        "credentials",
+        "private repository urls",
+        "customer data",
+        "dm/email/forms",
+        "private outreach",
+        "paid ads",
+        "guaranteed roi",
+        "docs/public-inquiry-router.md",
+    )
+    missing_download_first_run_guide_markers = [
+        marker
+        for marker in download_first_run_guide_required_markers
+        if marker not in download_first_run_guide_text
+    ]
+    if missing_download_first_run_guide_markers:
+        fail(
+            "public-safe download-to-first-run guide is missing marker(s): "
+            f"{', '.join(missing_download_first_run_guide_markers)}"
         )
 
     upgrade_text = UPGRADE_BOUNDARY_PATH.read_text(encoding="utf-8").lower()
@@ -443,6 +476,8 @@ def main() -> None:
             fail(f"{label} is missing the public-safe onboarding playbook link")
         if "docs/public-implementation-scope-menu.md" not in text and "public-implementation-scope-menu.md" not in text:
             fail(f"{label} is missing the public implementation scope menu link")
+        if "docs/free-lite-download-first-run-guide.md" not in text and "free-lite-download-first-run-guide.md" not in text:
+            fail(f"{label} is missing the download-to-first-run guide link")
 
     missing_templates = sorted(
         name for name in REQUIRED_ISSUE_TEMPLATES if not (ISSUE_TEMPLATE_DIR / name).exists()

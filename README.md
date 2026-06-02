@@ -35,6 +35,7 @@ If you try it and hit setup friction, open a public issue with:
 - Markdown output that can be copied into Slack, Notion, Linear, or a weekly status doc
 - Import checklist and public-safe troubleshooting guide: `docs/free-lite-import-checklist.md`
 - 10-minute public demo runbook: `docs/free-lite-demo-runbook.md`
+- Download-to-first-run guide for release ZIP users: `docs/free-lite-download-first-run-guide.md`
 - Local validation preflight: `docs/free-lite-validation-preflight.md`
 - Copyable sanitized issue examples: `docs/public-safe-issue-examples.md`
 - Troubleshooting FAQ for import/API/output symptoms: `docs/free-lite-troubleshooting-faq.md`
@@ -63,8 +64,9 @@ If you try it and hit setup friction, open a public issue with:
    - `GITHUB_TOKEN=...` — optional, only for higher rate limits or repos you are authorized to inspect
 3. Run the workflow manually and inspect the `markdown` field in the final node.
 4. For a safer first pass, follow the 10-minute public demo runbook in `docs/free-lite-demo-runbook.md`.
-5. Compare the result with `samples/sample-output.md` and the output review guide in `docs/free-lite-output-review-guide.md` before opening a public issue.
-6. If import or execution fails, use the 5-minute checklist in `docs/free-lite-import-checklist.md` and the troubleshooting FAQ in `docs/free-lite-troubleshooting-faq.md` before opening a public issue.
+5. If you downloaded the release ZIP, use `docs/free-lite-download-first-run-guide.md` to get from local unzip to one safe public-repo run without posting private data.
+6. Compare the result with `samples/sample-output.md` and the output review guide in `docs/free-lite-output-review-guide.md` before opening a public issue.
+7. If import or execution fails, use the 5-minute checklist in `docs/free-lite-import-checklist.md` and the troubleshooting FAQ in `docs/free-lite-troubleshooting-faq.md` before opening a public issue.
 
 ## Safety defaults
 
@@ -85,7 +87,7 @@ The local validation preflight in `docs/free-lite-validation-preflight.md` expan
 
 The validator checks that the workflow JSON is parseable, still includes the expected read-only GitHub snapshot nodes, keeps `GITHUB_TOKEN` optional, and does not contain common posting/mutating integrations or secret-like markers.
 
-Before tagging a release or responding to public setup reports, also use the manual release/support checklist in `docs/public-release-checks.md`. For a public-safe first-run walkthrough, see `docs/free-lite-demo-runbook.md`. For copyable examples of safe public issue content, see `docs/public-safe-issue-examples.md`; for common import/API/output failures, see `docs/free-lite-troubleshooting-faq.md`; for deciding whether the generated Markdown is useful enough to keep or customize, see `docs/free-lite-output-review-guide.md`.
+Before tagging a release or responding to public setup reports, also use the manual release/support checklist in `docs/public-release-checks.md`. For a public-safe first-run walkthrough, see `docs/free-lite-demo-runbook.md`; if the user downloaded the release ZIP, use `docs/free-lite-download-first-run-guide.md` to route them from local unzip to one safe public-repo run. For copyable examples of safe public issue content, see `docs/public-safe-issue-examples.md`; for common import/API/output failures, see `docs/free-lite-troubleshooting-faq.md`; for deciding whether the generated Markdown is useful enough to keep or customize, see `docs/free-lite-output-review-guide.md`.
 
 ## Full pack / paid help
 

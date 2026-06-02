@@ -27,7 +27,7 @@ The onboarding journey is structured into four progressive phases, ensuring you 
 
 The first step is to verify that the core weekly snapshot workflow runs successfully in your environment without exposing credentials or connecting active output channels.
 
-1. **Download and Import**: Import `workflows/free-lite-github-weekly-snapshot.json` into your local or self-hosted n8n instance.
+1. **Download and Import**: Import `workflows/free-lite-github-weekly-snapshot.json` into your local or self-hosted n8n instance. If you downloaded the release ZIP, use [`docs/free-lite-download-first-run-guide.md`](free-lite-download-first-run-guide.md) as the shortest path from local unzip to one safe public-repo run.
 2. **First Run Configuration**: Leave `GITHUB_TOKEN` blank on your first manual test. This proves the workflow can safely query public repository metadata without credentials.
 3. **Point to a Public Target**: Set `GITHUB_REPO` to a large public repository with frequent activity (for example, `n8n-io/n8n`) and set `LOOKBACK_DAYS` to `7`.
 4. **Manual Run & Verification**: Click "Execute Workflow" and confirm the final **Output Markdown Snapshot** node successfully populates the `markdown` field with weekly commit, pull request, and issue counts.
@@ -84,6 +84,7 @@ To protect your system security and personal privacy, always maintain these stri
 
 * **Free Lite Quick Start**: [`../README.md`](../README.md)
 * **Import Checklist & Troubleshooting**: [`docs/free-lite-import-checklist.md`](free-lite-import-checklist.md)
+* **Download-to-First-Run Guide**: [`docs/free-lite-download-first-run-guide.md`](free-lite-download-first-run-guide.md)
 * **10-Minute Demo Runbook**: [`docs/free-lite-demo-runbook.md`](free-lite-demo-runbook.md)
 * **Troubleshooting FAQ**: [`docs/free-lite-troubleshooting-faq.md`](free-lite-troubleshooting-faq.md)
 * **Public Inquiry Router**: [`docs/public-inquiry-router.md`](public-inquiry-router.md)
