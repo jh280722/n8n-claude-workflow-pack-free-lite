@@ -27,6 +27,19 @@ If you try it and hit setup friction, open a public issue with:
 4. sanitized error text,
 5. whether you tested with a public repo or redacted sample data.
 
+## Choose your next safe path
+
+If you are arriving from the release ZIP, start with one public-only test run before comparing paid options or asking for help. Use this routing table to avoid sharing secrets or private customer data in public.
+
+| If you want to... | Open this first | Then use this public issue route |
+|---|---|---|
+| Import the Free Lite ZIP and run it once | `docs/free-lite-download-first-run-guide.md` | [Free Lite setup question](https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=free-lite-setup.yml) |
+| Check whether the generated Markdown is useful | `docs/free-lite-output-review-guide.md` | [Free Lite feedback / integration request](https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=free-lite-feedback.yml) |
+| Decide whether Starter/Pro templates fit | `docs/public-implementation-scope-menu.md` | [Template/customization inquiry](https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=workflow-pack-inquiry.yml) |
+| Ask about an audit or later pilot | `docs/public-safe-onboarding-playbook.md` | [Workflow audit / pilot inquiry](https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=audit-pilot-inquiry.yml) |
+
+Public issues should stay public-only: do not post tokens, credentials, private repository URLs, customer data, checkout/payment details, payout/wallet/bank/Stripe details, tax/KYC/contract details, DM/email/forms/private outreach requests, paid ads instructions, or guaranteed ROI assumptions.
+
 ## What you get for free
 
 - `workflows/free-lite-github-weekly-snapshot.json`

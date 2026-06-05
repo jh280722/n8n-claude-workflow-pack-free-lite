@@ -479,6 +479,35 @@ def main() -> None:
         if "docs/free-lite-download-first-run-guide.md" not in text and "free-lite-download-first-run-guide.md" not in text:
             fail(f"{label} is missing the download-to-first-run guide link")
 
+    readme_text = (ROOT / "README.md").read_text(encoding="utf-8").lower()
+    readme_path_router_required_markers = (
+        "choose your next safe path",
+        "public-only",
+        "free-lite-setup.yml",
+        "free-lite-feedback.yml",
+        "workflow-pack-inquiry.yml",
+        "audit-pilot-inquiry.yml",
+        "tokens",
+        "credentials",
+        "private repository urls",
+        "customer data",
+        "checkout/payment details",
+        "payout/wallet/bank/stripe",
+        "tax/kyc/contract",
+        "dm/email/forms",
+        "private outreach",
+        "paid ads",
+        "guaranteed roi",
+    )
+    missing_readme_path_router_markers = [
+        marker for marker in readme_path_router_required_markers if marker not in readme_text
+    ]
+    if missing_readme_path_router_markers:
+        fail(
+            "README safe-path router is missing marker(s): "
+            f"{', '.join(missing_readme_path_router_markers)}"
+        )
+
     missing_templates = sorted(
         name for name in REQUIRED_ISSUE_TEMPLATES if not (ISSUE_TEMPLATE_DIR / name).exists()
     )
