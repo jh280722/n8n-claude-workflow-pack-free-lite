@@ -29,3 +29,7 @@ This free lite workflow produces a factual snapshot only. The full pack adds Cla
 ```
 
 The actual output depends on the selected `GITHUB_REPO`, lookback window, and GitHub API response.
+
+## Public-safe next step
+
+If this sample output looks close to what you need, use `docs/public-sample-output-next-steps.md` to choose the right public-only route before posting feedback or asking about the draft full pack. Keep any issue sanitized: no tokens, credentials, private repository URLs, customer data, checkout/payment details, payout/wallet/bank/Stripe details, tax/KYC/contract details, DM/email/forms/private outreach requests, paid ads instructions, or guaranteed ROI assumptions.

@@ -27,6 +27,7 @@ PUBLIC_PROOF_INDEX_PATH = ROOT / "docs" / "public-proof-index.md"
 PUBLIC_ROI_ASSUMPTION_WORKSHEET_PATH = ROOT / "docs" / "public-roi-assumption-worksheet.md"
 PUBLIC_SAFE_ONBOARDING_PLAYBOOK_PATH = ROOT / "docs" / "public-safe-onboarding-playbook.md"
 PUBLIC_IMPLEMENTATION_SCOPE_MENU_PATH = ROOT / "docs" / "public-implementation-scope-menu.md"
+PUBLIC_SAMPLE_OUTPUT_NEXT_STEPS_PATH = ROOT / "docs" / "public-sample-output-next-steps.md"
 
 FORBIDDEN_MUTATING_PATTERNS = [
     r"api\.github\.com/repos/[^`'\"\s]+/[^`'\"\s]+/issues/[^`'\"\s]+/comments",
@@ -128,6 +129,8 @@ def main() -> None:
         fail("missing public-safe onboarding playbook")
     if not PUBLIC_IMPLEMENTATION_SCOPE_MENU_PATH.exists():
         fail("missing public implementation scope menu")
+    if not PUBLIC_SAMPLE_OUTPUT_NEXT_STEPS_PATH.exists():
+        fail("missing public sample output next steps")
 
     faq_text = TROUBLESHOOTING_FAQ_PATH.read_text(encoding="utf-8").lower()
     faq_required_markers = (
@@ -464,6 +467,37 @@ def main() -> None:
             f"{', '.join(missing_implementation_scope_menu_markers)}"
         )
 
+    sample_output_next_steps_text = PUBLIC_SAMPLE_OUTPUT_NEXT_STEPS_PATH.read_text(encoding="utf-8").lower()
+    sample_output_next_steps_required_markers = (
+        "public-only",
+        "samples/sample-output.md",
+        "docs/free-lite-output-review-guide.md",
+        "docs/public-evaluation-scorecard.md",
+        "docs/public-inquiry-router.md",
+        "free-lite-feedback.yml",
+        "workflow-pack-inquiry.yml",
+        "audit-pilot-inquiry.yml",
+        "checkout/payment",
+        "payout/wallet/bank/stripe",
+        "tax/kyc/contract",
+        "tokens",
+        "credentials",
+        "private repository urls",
+        "customer data",
+        "dm/email/forms",
+        "private outreach",
+        "paid ads",
+        "guaranteed roi",
+    )
+    missing_sample_output_next_steps_markers = [
+        marker for marker in sample_output_next_steps_required_markers if marker not in sample_output_next_steps_text
+    ]
+    if missing_sample_output_next_steps_markers:
+        fail(
+            "public sample output next steps is missing marker(s): "
+            f"{', '.join(missing_sample_output_next_steps_markers)}"
+        )
+
     cross_link_paths = {
         "README.md": ROOT / "README.md",
         "PRICING.md": ROOT / "PRICING.md",
@@ -478,6 +512,8 @@ def main() -> None:
             fail(f"{label} is missing the public implementation scope menu link")
         if "docs/free-lite-download-first-run-guide.md" not in text and "free-lite-download-first-run-guide.md" not in text:
             fail(f"{label} is missing the download-to-first-run guide link")
+        if "docs/public-sample-output-next-steps.md" not in text and "public-sample-output-next-steps.md" not in text:
+            fail(f"{label} is missing the public sample output next steps link")
 
     readme_text = (ROOT / "README.md").read_text(encoding="utf-8").lower()
     readme_path_router_required_markers = (

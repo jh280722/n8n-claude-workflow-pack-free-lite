@@ -53,6 +53,7 @@ Public issues should stay public-only: do not post tokens, credentials, private 
 - Copyable sanitized issue examples: `docs/public-safe-issue-examples.md`
 - Troubleshooting FAQ for import/API/output symptoms: `docs/free-lite-troubleshooting-faq.md`
 - Output review guide and public-safe feedback template: `docs/free-lite-output-review-guide.md`
+- Public sample output next steps for routing a sample-output reader to the right public-safe issue path: `docs/public-sample-output-next-steps.md`
 - Public-safe paid upgrade boundary: `docs/upgrade-path-boundary.md`
 - Checkout-disabled full pack public listing preview: `docs/full-pack-public-listing.md`
 - Buyer fit checklist for the draft full pack: `docs/buyer-fit-checklist.md`
@@ -100,7 +101,7 @@ The local validation preflight in `docs/free-lite-validation-preflight.md` expan
 
 The validator checks that the workflow JSON is parseable, still includes the expected read-only GitHub snapshot nodes, keeps `GITHUB_TOKEN` optional, and does not contain common posting/mutating integrations or secret-like markers.
 
-Before tagging a release or responding to public setup reports, also use the manual release/support checklist in `docs/public-release-checks.md`. For a public-safe first-run walkthrough, see `docs/free-lite-demo-runbook.md`; if the user downloaded the release ZIP, use `docs/free-lite-download-first-run-guide.md` to route them from local unzip to one safe public-repo run. For copyable examples of safe public issue content, see `docs/public-safe-issue-examples.md`; for common import/API/output failures, see `docs/free-lite-troubleshooting-faq.md`; for deciding whether the generated Markdown is useful enough to keep or customize, see `docs/free-lite-output-review-guide.md`.
+Before tagging a release or responding to public setup reports, also use the manual release/support checklist in `docs/public-release-checks.md`. For a public-safe first-run walkthrough, see `docs/free-lite-demo-runbook.md`; if the user downloaded the release ZIP, use `docs/free-lite-download-first-run-guide.md` to route them from local unzip to one safe public-repo run. For copyable examples of safe public issue content, see `docs/public-safe-issue-examples.md`; for common import/API/output failures, see `docs/free-lite-troubleshooting-faq.md`; for deciding whether the generated Markdown is useful enough to keep or customize, see `docs/free-lite-output-review-guide.md` and `docs/public-sample-output-next-steps.md`.
 
 ## Full pack / paid help
 
@@ -117,7 +118,7 @@ The broader local pack currently contains additional workflows and support colla
 - Lead-fit/proposal triage
 - Pilot scope and quote drafting
 
-For a public-safe comparison of Free Lite, the draft template-pack options, and the audit/pilot path, see `PRICING.md`, `docs/upgrade-path-boundary.md`, the checkout-disabled listing preview in `docs/full-pack-public-listing.md`, the buyer fit checklist in `docs/buyer-fit-checklist.md`, the public evaluation scorecard in `docs/public-evaluation-scorecard.md`, the public share kit in `docs/public-share-kit.md`, the public inquiry router in `docs/public-inquiry-router.md`, the public proof index in `docs/public-proof-index.md`, the public ROI assumption worksheet in `docs/public-roi-assumption-worksheet.md`, the public-safe onboarding playbook in `docs/public-safe-onboarding-playbook.md`, and the public implementation scope menu in `docs/public-implementation-scope-menu.md`. These pages are informational only: they do not activate checkout, collect payment details, or request private credentials in public issues.
+For a public-safe comparison of Free Lite, the draft template-pack options, and the audit/pilot path, see `PRICING.md`, `docs/upgrade-path-boundary.md`, the checkout-disabled listing preview in `docs/full-pack-public-listing.md`, the buyer fit checklist in `docs/buyer-fit-checklist.md`, the public evaluation scorecard in `docs/public-evaluation-scorecard.md`, the public share kit in `docs/public-share-kit.md`, the public inquiry router in `docs/public-inquiry-router.md`, the public proof index in `docs/public-proof-index.md`, the public ROI assumption worksheet in `docs/public-roi-assumption-worksheet.md`, the public-safe onboarding playbook in `docs/public-safe-onboarding-playbook.md`, the public implementation scope menu in `docs/public-implementation-scope-menu.md`, and the public sample output next steps in `docs/public-sample-output-next-steps.md`. These pages are informational only: they do not activate checkout, collect payment details, or request private credentials in public issues.
 
 If you want the full template pack, customization, or a fixed-scope AI workflow audit, open an inquiry here:
 

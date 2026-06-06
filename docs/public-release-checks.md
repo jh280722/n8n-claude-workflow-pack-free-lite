@@ -26,7 +26,7 @@ Confirm `docs/free-lite-download-first-run-guide.md` remains linked from `README
 
 Confirm `docs/free-lite-output-review-guide.md` remains linked from `README.md` before handling feedback about generated Markdown quality; it keeps output review tied to `samples/sample-output.md` and sanitized public issue details.
 
-Confirm `docs/upgrade-path-boundary.md`, `docs/full-pack-public-listing.md`, `docs/buyer-fit-checklist.md`, `docs/public-evaluation-scorecard.md`, `docs/public-share-kit.md`, `docs/public-inquiry-router.md`, `docs/public-proof-index.md`, `docs/public-roi-assumption-worksheet.md`, `docs/public-safe-onboarding-playbook.md`, `docs/public-implementation-scope-menu.md`, `docs/free-lite-download-first-run-guide.md`, and `PRICING.md` remain linked before handling paid-pack, audit, evaluation, proof, value-estimate, onboarding, scope-selection, release-download, or public-only outreach questions; they keep conversion, scorecard, inquiry routing, proof requests, rough ROI assumptions, onboarding, scope-selection, first-run download, and sharing questions public-safe without requesting checkout, payment, KYC/tax, credentials, private repository URLs, customer data, or private outreach.
+Confirm `docs/upgrade-path-boundary.md`, `docs/full-pack-public-listing.md`, `docs/buyer-fit-checklist.md`, `docs/public-evaluation-scorecard.md`, `docs/public-share-kit.md`, `docs/public-inquiry-router.md`, `docs/public-proof-index.md`, `docs/public-roi-assumption-worksheet.md`, `docs/public-safe-onboarding-playbook.md`, `docs/public-implementation-scope-menu.md`, `docs/free-lite-download-first-run-guide.md`, `docs/public-sample-output-next-steps.md`, and `PRICING.md` remain linked before handling paid-pack, audit, evaluation, proof, value-estimate, onboarding, scope-selection, release-download, sample-output, or public-only outreach questions; they keep conversion, scorecard, inquiry routing, proof requests, rough ROI assumptions, onboarding, scope-selection, first-run download, sample-output review, and sharing questions public-safe without requesting checkout, payment, KYC/tax, credentials, private repository URLs, customer data, or private outreach.
 
 ## 2. Manual import smoke test
 
@@ -35,7 +35,7 @@ Confirm `docs/upgrade-path-boundary.md`, `docs/full-pack-public-listing.md`, `do
 3. Use a public repository such as `n8n-io/n8n`.
 4. Run manually.
 5. Confirm the final node returns a `markdown` field with commits, merged PRs, closed issues, stale items, and Claude-ready review questions.
-6. Compare the generated Markdown with `samples/sample-output.md` and the output review scorecard in `docs/free-lite-output-review-guide.md` before requesting feedback.
+6. Compare the generated Markdown with `samples/sample-output.md`, the output review scorecard in `docs/free-lite-output-review-guide.md`, and `docs/public-sample-output-next-steps.md` before requesting feedback.
 
 ## 3. Public support hygiene
 
