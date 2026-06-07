@@ -55,6 +55,7 @@ Before a release or public support reply, confirm:
 
 - `SECURITY.md` is present and linked from `README.md`;
 - the four issue forms linked from `README.md` are present under `.github/ISSUE_TEMPLATE/` and keep blank issues disabled;
+- the GitHub issue chooser contact links point visitors to `docs/free-lite-download-first-run-guide.md`, `docs/public-inquiry-router.md`, `docs/public-sample-output-next-steps.md`, and `SECURITY.md` before they choose a form;
 - issue replies ask for sanitized symptoms only, not secrets or private repo details;
 - any security-sensitive finding is reproducible on `n8n-io/n8n` or a synthetic sample before it is discussed publicly;
 - setup troubleshooting links to `docs/free-lite-troubleshooting-faq.md` before asking for more details;

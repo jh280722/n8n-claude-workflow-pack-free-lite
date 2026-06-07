@@ -14,6 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW_PATH = ROOT / "workflows" / "free-lite-github-weekly-snapshot.json"
 ISSUE_TEMPLATE_DIR = ROOT / ".github" / "ISSUE_TEMPLATE"
+ISSUE_TEMPLATE_CONFIG_PATH = ISSUE_TEMPLATE_DIR / "config.yml"
 TROUBLESHOOTING_FAQ_PATH = ROOT / "docs" / "free-lite-troubleshooting-faq.md"
 DOWNLOAD_FIRST_RUN_GUIDE_PATH = ROOT / "docs" / "free-lite-download-first-run-guide.md"
 UPGRADE_BOUNDARY_PATH = ROOT / "docs" / "upgrade-path-boundary.md"
@@ -549,6 +550,31 @@ def main() -> None:
     )
     if missing_templates:
         fail(f"missing public issue template(s): {', '.join(missing_templates)}")
+
+    issue_template_config_text = ISSUE_TEMPLATE_CONFIG_PATH.read_text(encoding="utf-8").lower()
+    issue_template_config_required_markers = (
+        "blank_issues_enabled: false",
+        "docs/free-lite-download-first-run-guide.md",
+        "docs/public-inquiry-router.md",
+        "docs/public-sample-output-next-steps.md",
+        "security.md",
+        "public-safe",
+        "tokens",
+        "private data",
+        "checkout/payment",
+        "dm/email/forms",
+        "private outreach",
+    )
+    missing_issue_template_config_markers = [
+        marker
+        for marker in issue_template_config_required_markers
+        if marker not in issue_template_config_text
+    ]
+    if missing_issue_template_config_markers:
+        fail(
+            "public issue chooser config is missing marker(s): "
+            f"{', '.join(missing_issue_template_config_markers)}"
+        )
 
     for template_name in sorted(REQUIRED_ISSUE_TEMPLATES - {"config.yml"}):
         template_text = (ISSUE_TEMPLATE_DIR / template_name).read_text(encoding="utf-8").lower()

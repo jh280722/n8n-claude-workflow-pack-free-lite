@@ -1,5 +1,14 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Start here — Free Lite download-to-first-run guide
+    url: https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/blob/main/docs/free-lite-download-first-run-guide.md
+    about: Run one public-only test before posting. No tokens, private data, or checkout/payment details.
+  - name: Choose the right public-safe issue form
+    url: https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/blob/main/docs/public-inquiry-router.md
+    about: Route setup, feedback, template-pack, or audit/pilot intent without DM/email/forms or private outreach.
+  - name: Public sample output next steps
+    url: https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/blob/main/docs/public-sample-output-next-steps.md
+    about: Compare the sample output with a sanitized public test run before opening an issue.
   - name: Public support and security boundary
     url: https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/blob/main/SECURITY.md
     about: Read what is safe to share before opening a public issue.
