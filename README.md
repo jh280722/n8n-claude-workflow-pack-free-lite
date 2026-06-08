@@ -54,6 +54,7 @@ Public issues should stay public-only: do not post tokens, credentials, private 
 - Troubleshooting FAQ for import/API/output symptoms: `docs/free-lite-troubleshooting-faq.md`
 - Output review guide and public-safe feedback template: `docs/free-lite-output-review-guide.md`
 - Public sample output next steps for routing a sample-output reader to the right public-safe issue path: `docs/public-sample-output-next-steps.md`
+- Public-safe contribution guide for issues, PRs, examples, and validation: `CONTRIBUTING.md`
 - Public-safe paid upgrade boundary: `docs/upgrade-path-boundary.md`
 - Checkout-disabled full pack public listing preview: `docs/full-pack-public-listing.md`
 - Buyer fit checklist for the draft full pack: `docs/buyer-fit-checklist.md`
@@ -146,7 +147,7 @@ Helpful feedback:
 - Is the weekly summary format useful for maintainers or small teams?
 - Which integration would be most useful next: Slack, Discord, Notion, or a Claude narrative summary?
 
-Please keep feedback public-safe: no tokens, private repo names, customer data, internal incidents, or production logs.
+Please keep feedback public-safe: no tokens, private repo names, customer data, internal incidents, or production logs. Before opening a public issue or pull request, use `CONTRIBUTING.md` to check the public-only contribution boundary and validation steps.
 
 ## License
 

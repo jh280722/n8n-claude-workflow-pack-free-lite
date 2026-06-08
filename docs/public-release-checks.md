@@ -22,6 +22,8 @@ Also run the local preflight in `docs/free-lite-validation-preflight.md` before 
 
 Confirm the troubleshooting FAQ in `docs/free-lite-troubleshooting-faq.md` remains linked from `README.md` before replying to setup issues; it keeps common import/API/output debugging public-safe.
 
+Confirm `CONTRIBUTING.md` remains linked from `README.md` before inviting public issues, pull requests, examples, or validator changes; it keeps contributor guidance public-only and blocks tokens, credentials, private repository URLs, customer data, checkout/payment details, tax/KYC/contract details, DM/email/forms, private outreach, paid ads, and guaranteed ROI claims.
+
 Confirm `docs/free-lite-download-first-run-guide.md` remains linked from `README.md` before handling release ZIP download/setup questions; it routes a downloader from local unzip to one safe public-repo run before any paid or private scope.
 
 Confirm `docs/free-lite-output-review-guide.md` remains linked from `README.md` before handling feedback about generated Markdown quality; it keeps output review tied to `samples/sample-output.md` and sanitized public issue details.

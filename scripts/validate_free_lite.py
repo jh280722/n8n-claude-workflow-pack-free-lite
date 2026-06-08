@@ -29,6 +29,7 @@ PUBLIC_ROI_ASSUMPTION_WORKSHEET_PATH = ROOT / "docs" / "public-roi-assumption-wo
 PUBLIC_SAFE_ONBOARDING_PLAYBOOK_PATH = ROOT / "docs" / "public-safe-onboarding-playbook.md"
 PUBLIC_IMPLEMENTATION_SCOPE_MENU_PATH = ROOT / "docs" / "public-implementation-scope-menu.md"
 PUBLIC_SAMPLE_OUTPUT_NEXT_STEPS_PATH = ROOT / "docs" / "public-sample-output-next-steps.md"
+CONTRIBUTING_PATH = ROOT / "CONTRIBUTING.md"
 
 FORBIDDEN_MUTATING_PATTERNS = [
     r"api\.github\.com/repos/[^`'\"\s]+/[^`'\"\s]+/issues/[^`'\"\s]+/comments",
@@ -132,6 +133,8 @@ def main() -> None:
         fail("missing public implementation scope menu")
     if not PUBLIC_SAMPLE_OUTPUT_NEXT_STEPS_PATH.exists():
         fail("missing public sample output next steps")
+    if not CONTRIBUTING_PATH.exists():
+        fail("missing public-safe contribution guide")
 
     faq_text = TROUBLESHOOTING_FAQ_PATH.read_text(encoding="utf-8").lower()
     faq_required_markers = (
@@ -499,6 +502,33 @@ def main() -> None:
             f"{', '.join(missing_sample_output_next_steps_markers)}"
         )
 
+    contributing_text = CONTRIBUTING_PATH.read_text(encoding="utf-8").lower()
+    contributing_required_markers = (
+        "public-only",
+        "tokens",
+        "credentials",
+        "private repository urls",
+        "customer data",
+        "checkout/payment",
+        "payout/wallet/bank/stripe",
+        "tax/kyc/contract",
+        "dm/email/forms",
+        "private outreach",
+        "paid ads",
+        "guaranteed roi",
+        "python3 scripts/validate_free_lite.py",
+        "git diff --check",
+        "docs/public-inquiry-router.md",
+    )
+    missing_contributing_markers = [
+        marker for marker in contributing_required_markers if marker not in contributing_text
+    ]
+    if missing_contributing_markers:
+        fail(
+            "public-safe contribution guide is missing marker(s): "
+            f"{', '.join(missing_contributing_markers)}"
+        )
+
     cross_link_paths = {
         "README.md": ROOT / "README.md",
         "PRICING.md": ROOT / "PRICING.md",
@@ -517,6 +547,11 @@ def main() -> None:
             fail(f"{label} is missing the public sample output next steps link")
 
     readme_text = (ROOT / "README.md").read_text(encoding="utf-8").lower()
+    release_checks_text = (ROOT / "docs" / "public-release-checks.md").read_text(encoding="utf-8").lower()
+    if "contributing.md" not in readme_text:
+        fail("README.md is missing the public-safe contribution guide link")
+    if "contributing.md" not in release_checks_text:
+        fail("docs/public-release-checks.md is missing the public-safe contribution guide check")
     readme_path_router_required_markers = (
         "choose your next safe path",
         "public-only",
