@@ -2,6 +2,15 @@
 
 Use these examples when reporting Free Lite setup problems or sharing feedback. They are written to keep GitHub issues useful without exposing secrets, private repository names, customer data, or production logs.
 
+Public-only boundary: copy these examples into public GitHub issue forms only after removing tokens, credentials, private repository URLs, customer data, production logs, internal screenshots, checkout/payment details, payout/wallet/bank/Stripe details, tax/KYC/contract details, DM/email/forms/private outreach requests, paid ads instructions, and guaranteed ROI assumptions. If the issue needs sensitive details, stop at a high-level public symptom and wait for an approved private channel.
+
+Use the guided forms instead of blank issues:
+
+- `free-lite-setup.yml` for import or execution setup questions.
+- `free-lite-feedback.yml` for output feedback or future integration ideas.
+- `workflow-pack-inquiry.yml` for template-pack or customization fit.
+- `audit-pilot-inquiry.yml` for workflow audit or later pilot interest.
+
 ## Good setup report
 
 ```markdown
@@ -93,5 +102,6 @@ Before opening an issue, confirm:
 - [ ] I can reproduce the issue with a public repo or sanitized sample.
 - [ ] Any error text is redacted.
 - [ ] No token, private URL, customer data, production log, or billing/legal/KYC detail is included.
+- [ ] No checkout/payment, payout/wallet/bank/Stripe, tax/KYC/contract, DM/email/forms/private outreach, paid ads, or guaranteed ROI detail is included.
 - [ ] I named the failing n8n node and described whether import succeeded.
 - [ ] I included whether the final `markdown` field appeared.

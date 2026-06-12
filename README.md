@@ -35,6 +35,7 @@ If you are arriving from the release ZIP, start with one public-only test run be
 |---|---|---|
 | Import the Free Lite ZIP and run it once | `docs/free-lite-download-first-run-guide.md` | [Free Lite setup question](https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=free-lite-setup.yml) |
 | Check whether the generated Markdown is useful | `docs/free-lite-output-review-guide.md` | [Free Lite feedback / integration request](https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=free-lite-feedback.yml) |
+| Draft a sanitized public issue without leaking private data | `docs/public-safe-issue-examples.md` | [Free Lite setup question](https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=free-lite-setup.yml) or [Free Lite feedback](https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=free-lite-feedback.yml) |
 | Decide whether Starter/Pro templates fit | `docs/public-implementation-scope-menu.md` | [Template/customization inquiry](https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=workflow-pack-inquiry.yml) |
 | Ask about an audit or later pilot | `docs/public-safe-onboarding-playbook.md` | [Workflow audit / pilot inquiry](https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=audit-pilot-inquiry.yml) |
 

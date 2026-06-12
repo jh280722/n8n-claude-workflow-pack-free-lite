@@ -17,6 +17,7 @@ ISSUE_TEMPLATE_DIR = ROOT / ".github" / "ISSUE_TEMPLATE"
 ISSUE_TEMPLATE_CONFIG_PATH = ISSUE_TEMPLATE_DIR / "config.yml"
 TROUBLESHOOTING_FAQ_PATH = ROOT / "docs" / "free-lite-troubleshooting-faq.md"
 DOWNLOAD_FIRST_RUN_GUIDE_PATH = ROOT / "docs" / "free-lite-download-first-run-guide.md"
+PUBLIC_SAFE_ISSUE_EXAMPLES_PATH = ROOT / "docs" / "public-safe-issue-examples.md"
 UPGRADE_BOUNDARY_PATH = ROOT / "docs" / "upgrade-path-boundary.md"
 OUTPUT_REVIEW_GUIDE_PATH = ROOT / "docs" / "free-lite-output-review-guide.md"
 FULL_PACK_LISTING_PATH = ROOT / "docs" / "full-pack-public-listing.md"
@@ -108,6 +109,8 @@ def main() -> None:
         fail("missing public-safe troubleshooting FAQ")
     if not DOWNLOAD_FIRST_RUN_GUIDE_PATH.exists():
         fail("missing public-safe download-to-first-run guide")
+    if not PUBLIC_SAFE_ISSUE_EXAMPLES_PATH.exists():
+        fail("missing public-safe issue examples")
 
     if not UPGRADE_BOUNDARY_PATH.exists():
         fail("missing public-safe upgrade path boundary")
@@ -181,6 +184,36 @@ def main() -> None:
         fail(
             "public-safe download-to-first-run guide is missing marker(s): "
             f"{', '.join(missing_download_first_run_guide_markers)}"
+        )
+
+    public_safe_issue_examples_text = PUBLIC_SAFE_ISSUE_EXAMPLES_PATH.read_text(encoding="utf-8").lower()
+    public_safe_issue_examples_required_markers = (
+        "public-only",
+        "free-lite-setup.yml",
+        "free-lite-feedback.yml",
+        "workflow-pack-inquiry.yml",
+        "audit-pilot-inquiry.yml",
+        "tokens",
+        "credentials",
+        "private repository urls",
+        "customer data",
+        "checkout/payment",
+        "payout/wallet/bank/stripe",
+        "tax/kyc/contract",
+        "dm/email/forms",
+        "private outreach",
+        "paid ads",
+        "guaranteed roi",
+    )
+    missing_public_safe_issue_examples_markers = [
+        marker
+        for marker in public_safe_issue_examples_required_markers
+        if marker not in public_safe_issue_examples_text
+    ]
+    if missing_public_safe_issue_examples_markers:
+        fail(
+            "public-safe issue examples are missing marker(s): "
+            f"{', '.join(missing_public_safe_issue_examples_markers)}"
         )
 
     upgrade_text = UPGRADE_BOUNDARY_PATH.read_text(encoding="utf-8").lower()
@@ -543,6 +576,8 @@ def main() -> None:
             fail(f"{label} is missing the public implementation scope menu link")
         if "docs/free-lite-download-first-run-guide.md" not in text and "free-lite-download-first-run-guide.md" not in text:
             fail(f"{label} is missing the download-to-first-run guide link")
+        if "docs/public-safe-issue-examples.md" not in text and "public-safe-issue-examples.md" not in text:
+            fail(f"{label} is missing the public-safe issue examples link")
         if "docs/public-sample-output-next-steps.md" not in text and "public-sample-output-next-steps.md" not in text:
             fail(f"{label} is missing the public sample output next steps link")
 
@@ -592,6 +627,7 @@ def main() -> None:
         "docs/free-lite-download-first-run-guide.md",
         "docs/public-inquiry-router.md",
         "docs/public-sample-output-next-steps.md",
+        "docs/public-safe-issue-examples.md",
         "security.md",
         "public-safe",
         "tokens",

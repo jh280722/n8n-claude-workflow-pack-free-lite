@@ -28,6 +28,8 @@ Confirm `docs/free-lite-download-first-run-guide.md` remains linked from `README
 
 Confirm `docs/free-lite-output-review-guide.md` remains linked from `README.md` before handling feedback about generated Markdown quality; it keeps output review tied to `samples/sample-output.md` and sanitized public issue details.
 
+Confirm `docs/public-safe-issue-examples.md` remains linked from `README.md` and the issue chooser before asking a visitor to open a setup, feedback, template-pack, or audit/pilot issue; it gives copyable public-only examples and blocks checkout/payment, payout/wallet/bank/Stripe, tax/KYC/contract, DM/email/forms/private outreach, paid ads, and guaranteed ROI claims.
+
 Confirm `docs/upgrade-path-boundary.md`, `docs/full-pack-public-listing.md`, `docs/buyer-fit-checklist.md`, `docs/public-evaluation-scorecard.md`, `docs/public-share-kit.md`, `docs/public-inquiry-router.md`, `docs/public-proof-index.md`, `docs/public-roi-assumption-worksheet.md`, `docs/public-safe-onboarding-playbook.md`, `docs/public-implementation-scope-menu.md`, `docs/free-lite-download-first-run-guide.md`, `docs/public-sample-output-next-steps.md`, and `PRICING.md` remain linked before handling paid-pack, audit, evaluation, proof, value-estimate, onboarding, scope-selection, release-download, sample-output, or public-only outreach questions; they keep conversion, scorecard, inquiry routing, proof requests, rough ROI assumptions, onboarding, scope-selection, first-run download, sample-output review, and sharing questions public-safe without requesting checkout, payment, KYC/tax, credentials, private repository URLs, customer data, or private outreach.
 
 ## 2. Manual import smoke test
@@ -58,6 +60,7 @@ Before a release or public support reply, confirm:
 - `SECURITY.md` is present and linked from `README.md`;
 - the four issue forms linked from `README.md` are present under `.github/ISSUE_TEMPLATE/` and keep blank issues disabled;
 - the GitHub issue chooser contact links point visitors to `docs/free-lite-download-first-run-guide.md`, `docs/public-inquiry-router.md`, `docs/public-sample-output-next-steps.md`, and `SECURITY.md` before they choose a form;
+- the GitHub issue chooser also links `docs/public-safe-issue-examples.md` so visitors can copy a sanitized setup, feedback, template-pack, or audit/pilot example before posting;
 - issue replies ask for sanitized symptoms only, not secrets or private repo details;
 - any security-sensitive finding is reproducible on `n8n-io/n8n` or a synthetic sample before it is discussed publicly;
 - setup troubleshooting links to `docs/free-lite-troubleshooting-faq.md` before asking for more details;

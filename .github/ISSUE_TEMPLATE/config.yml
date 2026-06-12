@@ -9,6 +9,9 @@ contact_links:
   - name: Public sample output next steps
     url: https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/blob/main/docs/public-sample-output-next-steps.md
     about: Compare the sample output with a sanitized public test run before opening an issue.
+  - name: Copy a public-safe issue example
+    url: https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/blob/main/docs/public-safe-issue-examples.md
+    about: Start from a sanitized setup, feedback, or template-pack example before posting.
   - name: Public support and security boundary
     url: https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/blob/main/SECURITY.md
     about: Read what is safe to share before opening a public issue.
