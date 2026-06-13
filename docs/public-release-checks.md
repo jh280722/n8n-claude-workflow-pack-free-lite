@@ -26,6 +26,8 @@ Confirm `CONTRIBUTING.md` remains linked from `README.md` before inviting public
 
 Confirm `docs/free-lite-download-first-run-guide.md` remains linked from `README.md` before handling release ZIP download/setup questions; it routes a downloader from local unzip to one safe public-repo run before any paid or private scope.
 
+Confirm `workflows/README.md` and `scripts/README.md` remain linked from `README.md` before handling visitors who landed directly on workflow JSON, the workflow folder, or validator scripts from GitHub traffic/search; they route those visitors back to public-only first-run, validation, issue, and contribution paths without requesting secrets, private data, checkout/payment, payout, KYC/tax/bank/contract, DM/email/forms/private outreach, paid ads, or guaranteed ROI claims.
+
 Confirm `docs/free-lite-output-review-guide.md` remains linked from `README.md` before handling feedback about generated Markdown quality; it keeps output review tied to `samples/sample-output.md` and sanitized public issue details.
 
 Confirm `docs/public-safe-issue-examples.md` remains linked from `README.md` and the issue chooser before asking a visitor to open a setup, feedback, template-pack, or audit/pilot issue; it gives copyable public-only examples and blocks checkout/payment, payout/wallet/bank/Stripe, tax/KYC/contract, DM/email/forms/private outreach, paid ads, and guaranteed ROI claims.

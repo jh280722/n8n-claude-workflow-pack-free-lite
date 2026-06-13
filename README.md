@@ -44,6 +44,7 @@ Public issues should stay public-only: do not post tokens, credentials, private 
 ## What you get for free
 
 - `workflows/free-lite-github-weekly-snapshot.json`
+- Traffic-aware workflow landing guide: `workflows/README.md`
 - Manual trigger + optional Friday 5pm schedule trigger
 - Public GitHub API fetch for commits, merged PRs, and closed issues
 - Markdown output that can be copied into Slack, Notion, Linear, or a weekly status doc
@@ -51,6 +52,7 @@ Public issues should stay public-only: do not post tokens, credentials, private 
 - 10-minute public demo runbook: `docs/free-lite-demo-runbook.md`
 - Download-to-first-run guide for release ZIP users: `docs/free-lite-download-first-run-guide.md`
 - Local validation preflight: `docs/free-lite-validation-preflight.md`
+- Traffic-aware scripts landing guide for validator visitors: `scripts/README.md`
 - Copyable sanitized issue examples: `docs/public-safe-issue-examples.md`
 - Troubleshooting FAQ for import/API/output symptoms: `docs/free-lite-troubleshooting-faq.md`
 - Output review guide and public-safe feedback template: `docs/free-lite-output-review-guide.md`
@@ -74,6 +76,7 @@ Public issues should stay public-only: do not post tokens, credentials, private 
 ## Quick start
 
 1. Import `workflows/free-lite-github-weekly-snapshot.json` into n8n.
+   - If you landed directly in the workflow folder or JSON file, read `workflows/README.md` first for the public-only path from workflow file to one safe run.
 2. Optionally set environment variables:
    - `GITHUB_REPO=owner/repo` — defaults to `n8n-io/n8n`
    - `LOOKBACK_DAYS=7`
@@ -99,7 +102,7 @@ Run the included public-safety validator before sharing a modified workflow:
 python3 scripts/validate_free_lite.py
 ```
 
-The local validation preflight in `docs/free-lite-validation-preflight.md` expands this into a short release/support routine with `git diff --check`, screenshot safety checks, and public issue hygiene.
+The local validation preflight in `docs/free-lite-validation-preflight.md` expands this into a short release/support routine with `git diff --check`, screenshot safety checks, and public issue hygiene. If you landed directly in the validator folder, `scripts/README.md` explains the public-only validation path before opening issues or PRs.
 
 The validator checks that the workflow JSON is parseable, still includes the expected read-only GitHub snapshot nodes, keeps `GITHUB_TOKEN` optional, and does not contain common posting/mutating integrations or secret-like markers.
 

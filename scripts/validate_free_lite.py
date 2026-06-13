@@ -13,6 +13,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW_PATH = ROOT / "workflows" / "free-lite-github-weekly-snapshot.json"
+WORKFLOW_LANDING_PATH = ROOT / "workflows" / "README.md"
+SCRIPTS_LANDING_PATH = ROOT / "scripts" / "README.md"
 ISSUE_TEMPLATE_DIR = ROOT / ".github" / "ISSUE_TEMPLATE"
 ISSUE_TEMPLATE_CONFIG_PATH = ISSUE_TEMPLATE_DIR / "config.yml"
 TROUBLESHOOTING_FAQ_PATH = ROOT / "docs" / "free-lite-troubleshooting-faq.md"
@@ -107,6 +109,10 @@ def main() -> None:
 
     if not TROUBLESHOOTING_FAQ_PATH.exists():
         fail("missing public-safe troubleshooting FAQ")
+    if not WORKFLOW_LANDING_PATH.exists():
+        fail("missing traffic-aware workflow landing guide")
+    if not SCRIPTS_LANDING_PATH.exists():
+        fail("missing traffic-aware scripts landing guide")
     if not DOWNLOAD_FIRST_RUN_GUIDE_PATH.exists():
         fail("missing public-safe download-to-first-run guide")
     if not PUBLIC_SAFE_ISSUE_EXAMPLES_PATH.exists():
@@ -154,6 +160,69 @@ def main() -> None:
         fail(
             "public-safe troubleshooting FAQ is missing marker(s): "
             f"{', '.join(missing_faq_markers)}"
+        )
+
+    workflow_landing_text = WORKFLOW_LANDING_PATH.read_text(encoding="utf-8").lower()
+    workflow_landing_required_markers = (
+        "public-only",
+        "workflows/free-lite-github-weekly-snapshot.json",
+        "github_token",
+        "docs/free-lite-download-first-run-guide.md",
+        "docs/free-lite-import-checklist.md",
+        "docs/public-inquiry-router.md",
+        "docs/public-safe-issue-examples.md",
+        "free-lite-setup.yml",
+        "free-lite-feedback.yml",
+        "tokens",
+        "credentials",
+        "private repository urls",
+        "customer data",
+        "checkout/payment",
+        "payout/wallet/bank/stripe",
+        "tax/kyc/contract",
+        "dm/email/forms",
+        "private outreach",
+        "paid ads",
+        "guaranteed roi",
+    )
+    missing_workflow_landing_markers = [
+        marker for marker in workflow_landing_required_markers if marker not in workflow_landing_text
+    ]
+    if missing_workflow_landing_markers:
+        fail(
+            "traffic-aware workflow landing guide is missing marker(s): "
+            f"{', '.join(missing_workflow_landing_markers)}"
+        )
+
+    scripts_landing_text = SCRIPTS_LANDING_PATH.read_text(encoding="utf-8").lower()
+    scripts_landing_required_markers = (
+        "public-safety validator",
+        "python3 scripts/validate_free_lite.py",
+        "git diff --check",
+        "contributing.md",
+        "docs/public-release-checks.md",
+        "docs/public-inquiry-router.md",
+        "free-lite-setup.yml",
+        "free-lite-feedback.yml",
+        "tokens",
+        "credentials",
+        "private repository urls",
+        "customer data",
+        "checkout/payment",
+        "payout/wallet/bank/stripe",
+        "tax/kyc/contract",
+        "dm/email/forms",
+        "private outreach",
+        "paid ads",
+        "guaranteed roi",
+    )
+    missing_scripts_landing_markers = [
+        marker for marker in scripts_landing_required_markers if marker not in scripts_landing_text
+    ]
+    if missing_scripts_landing_markers:
+        fail(
+            "traffic-aware scripts landing guide is missing marker(s): "
+            f"{', '.join(missing_scripts_landing_markers)}"
         )
 
     download_first_run_guide_text = DOWNLOAD_FIRST_RUN_GUIDE_PATH.read_text(encoding="utf-8").lower()
@@ -585,8 +654,14 @@ def main() -> None:
     release_checks_text = (ROOT / "docs" / "public-release-checks.md").read_text(encoding="utf-8").lower()
     if "contributing.md" not in readme_text:
         fail("README.md is missing the public-safe contribution guide link")
+    if "workflows/readme.md" not in readme_text:
+        fail("README.md is missing the traffic-aware workflow landing guide link")
+    if "scripts/readme.md" not in readme_text:
+        fail("README.md is missing the traffic-aware scripts landing guide link")
     if "contributing.md" not in release_checks_text:
         fail("docs/public-release-checks.md is missing the public-safe contribution guide check")
+    if "workflows/readme.md" not in release_checks_text or "scripts/readme.md" not in release_checks_text:
+        fail("docs/public-release-checks.md is missing traffic-aware landing guide checks")
     readme_path_router_required_markers = (
         "choose your next safe path",
         "public-only",
