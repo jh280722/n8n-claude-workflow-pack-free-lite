@@ -271,6 +271,10 @@ def main() -> None:
         "docs/free-lite-troubleshooting-faq.md",
         "docs/public-inquiry-router.md",
         "docs/public-safe-issue-examples.md",
+        "clone-run public receipt",
+        "n8n version",
+        "public test repository",
+        "redacted error text",
         "free-lite-setup.yml",
         "free-lite-feedback.yml",
         "workflow-pack-inquiry.yml",
@@ -689,6 +693,8 @@ def main() -> None:
         if label in {"README.md", "docs/public-release-checks.md"}:
             if "docs/clone-to-first-success.md" not in text and "clone-to-first-success.md" not in text:
                 fail(f"{label} is missing the clone-to-first-success guide link")
+            if "clone-run public receipt" not in text:
+                fail(f"{label} is missing the clone-run public receipt marker")
         if "docs/public-safe-issue-examples.md" not in text and "public-safe-issue-examples.md" not in text:
             fail(f"{label} is missing the public-safe issue examples link")
         if "docs/public-sample-output-next-steps.md" not in text and "public-sample-output-next-steps.md" not in text:
