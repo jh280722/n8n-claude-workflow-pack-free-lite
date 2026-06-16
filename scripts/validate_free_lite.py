@@ -749,6 +749,8 @@ def main() -> None:
     issue_template_config_text = ISSUE_TEMPLATE_CONFIG_PATH.read_text(encoding="utf-8").lower()
     issue_template_config_required_markers = (
         "blank_issues_enabled: false",
+        "docs/clone-to-first-success.md",
+        "clone-run public receipt",
         "docs/free-lite-download-first-run-guide.md",
         "docs/public-inquiry-router.md",
         "docs/public-sample-output-next-steps.md",
@@ -770,6 +772,60 @@ def main() -> None:
         fail(
             "public issue chooser config is missing marker(s): "
             f"{', '.join(missing_issue_template_config_markers)}"
+        )
+
+    setup_template_text = (ISSUE_TEMPLATE_DIR / "free-lite-setup.yml").read_text(encoding="utf-8").lower()
+    setup_template_required_markers = (
+        "docs/clone-to-first-success.md",
+        "clone-run public receipt",
+        "python3 scripts/validate_free_lite.py",
+        "git diff --check",
+        "local validation",
+        "public test repository",
+        "final markdown field",
+        "sample-output comparison",
+        "next safe route",
+        "checkout/payment details",
+        "payout/wallet/bank/stripe details",
+        "tax/kyc/contract details",
+        "dm/email/forms",
+        "private outreach",
+        "paid ads",
+        "guaranteed roi",
+    )
+    missing_setup_template_markers = [
+        marker for marker in setup_template_required_markers if marker not in setup_template_text
+    ]
+    if missing_setup_template_markers:
+        fail(
+            "Free Lite setup issue template is missing clone-run receipt marker(s): "
+            f"{', '.join(missing_setup_template_markers)}"
+        )
+
+    feedback_template_text = (ISSUE_TEMPLATE_DIR / "free-lite-feedback.yml").read_text(encoding="utf-8").lower()
+    feedback_template_required_markers = (
+        "docs/clone-to-first-success.md",
+        "clone-run public receipt",
+        "local validation",
+        "public test repository",
+        "final `markdown` field",
+        "sample-output comparison",
+        "next safe route",
+        "checkout/payment details",
+        "payout/wallet/bank/stripe details",
+        "tax/kyc/contract details",
+        "dm/email/forms",
+        "private outreach",
+        "paid ads",
+        "guaranteed roi",
+    )
+    missing_feedback_template_markers = [
+        marker for marker in feedback_template_required_markers if marker not in feedback_template_text
+    ]
+    if missing_feedback_template_markers:
+        fail(
+            "Free Lite feedback issue template is missing clone-run receipt marker(s): "
+            f"{', '.join(missing_feedback_template_markers)}"
         )
 
     for template_name in sorted(REQUIRED_ISSUE_TEMPLATES - {"config.yml"}):

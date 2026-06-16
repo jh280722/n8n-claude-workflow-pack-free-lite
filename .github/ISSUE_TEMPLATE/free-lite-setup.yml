@@ -7,6 +7,8 @@ body:
     attributes:
       value: |
         Thanks for trying the Free Lite workflow. Keep this issue public-safe: do not post API keys, private repository URLs, customer data, production logs, internal screenshots, credentials, paid account details, tax/KYC details, or exploit details for a real private system.
+
+        If you cloned the repo first, run `python3 scripts/validate_free_lite.py` and `git diff --check`, then copy the clone-run public receipt from `docs/clone-to-first-success.md`. The fields below mirror that receipt so a maintainer can help without asking for secrets, checkout/payment details, payout/wallet/bank/Stripe details, tax/KYC/contract details, DM/email/forms, private outreach, paid ads, or guaranteed ROI assumptions.
   - type: input
     id: n8n-version
     attributes:
@@ -42,6 +44,61 @@ body:
         - "Not applicable"
     validations:
       required: true
+  - type: dropdown
+    id: local-validation
+    attributes:
+      label: Local validation before posting
+      description: "If you cloned the repo, run both checks from the repository root. If you used only the release ZIP, choose Not applicable."
+      options:
+        - "python3 scripts/validate_free_lite.py passed and git diff --check passed"
+        - "One or both checks failed; sanitized details below"
+        - "Not run yet"
+        - "Not applicable; release ZIP only"
+    validations:
+      required: true
+  - type: input
+    id: public-test-repository
+    attributes:
+      label: Public test repository or redacted data boundary
+      description: "Use owner/repo only for a public repository. If you used private data locally, write private repo tested; name redacted."
+      placeholder: "n8n-io/n8n or private repo tested; name redacted"
+    validations:
+      required: true
+  - type: dropdown
+    id: final-markdown-field
+    attributes:
+      label: Did the final markdown field appear?
+      options:
+        - "Yes"
+        - "No"
+        - "Not sure"
+        - "Did not reach final node"
+    validations:
+      required: true
+  - type: dropdown
+    id: sample-output-comparison
+    attributes:
+      label: Sample-output comparison
+      description: "Compare only the structure against samples/sample-output.md; do not paste private output."
+      options:
+        - "Matches expected structure"
+        - "Partially matches"
+        - "Does not match"
+        - "Not compared yet"
+    validations:
+      required: true
+  - type: dropdown
+    id: next-safe-route
+    attributes:
+      label: Next safe route requested
+      options:
+        - "Setup/import help"
+        - "Output feedback"
+        - "Template-pack fit"
+        - "Audit/pilot fit"
+        - "Not sure"
+    validations:
+      required: true
   - type: textarea
     id: sanitized-error
     attributes:
@@ -55,5 +112,5 @@ body:
     attributes:
       label: Public-safety confirmation
       options:
-        - label: "I removed tokens, private repo URLs, customer data, production logs, credentials, and paid account/KYC/tax details from this issue."
+        - label: "I removed tokens, private repo URLs, customer data, production logs, credentials, checkout/payment details, payout/wallet/bank/Stripe details, tax/KYC/contract details, DM/email/forms/private outreach requests, paid ads instructions, and guaranteed ROI claims from this issue."
           required: true

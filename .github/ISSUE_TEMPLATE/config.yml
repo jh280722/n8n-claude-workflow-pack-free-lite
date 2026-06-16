@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Clone-first users — clone-run public receipt
+    url: https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/blob/main/docs/clone-to-first-success.md
+    about: If you cloned the repo first, run local validation and copy a sanitized clone-run public receipt before opening an issue.
   - name: Start here — Free Lite download-to-first-run guide
     url: https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/blob/main/docs/free-lite-download-first-run-guide.md
     about: Run one public-only test before posting. No tokens, private data, or checkout/payment details.

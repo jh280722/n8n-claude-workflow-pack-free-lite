@@ -90,6 +90,8 @@ Public issues should stay public-only: do not post tokens, credentials, private 
 7. Compare the result with `samples/sample-output.md` and the output review guide in `docs/free-lite-output-review-guide.md` before opening a public issue.
 8. If import or execution fails, use the 5-minute checklist in `docs/free-lite-import-checklist.md` and the troubleshooting FAQ in `docs/free-lite-troubleshooting-faq.md` before opening a public issue.
 
+Clone-first setup issues now mirror the clone-run public receipt from `docs/clone-to-first-success.md`: local validation, public test repository or redacted data boundary, final `markdown` field, sample-output comparison, and next safe route. This keeps public support actionable without asking for secrets, private data, checkout/payment details, payout/wallet/bank/Stripe details, tax/KYC/contract details, DM/email/forms, private outreach, paid ads, or guaranteed ROI assumptions.
+
 ## Safety defaults
 
 - The workflow reads GitHub activity and produces draft Markdown only.

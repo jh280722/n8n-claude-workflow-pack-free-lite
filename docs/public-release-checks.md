@@ -26,7 +26,7 @@ Confirm `CONTRIBUTING.md` remains linked from `README.md` before inviting public
 
 Confirm `docs/free-lite-download-first-run-guide.md` remains linked from `README.md` before handling release ZIP download/setup questions; it routes a downloader from local unzip to one safe public-repo run before any paid or private scope.
 
-Confirm `docs/clone-to-first-success.md` remains linked from `README.md` before handling visitors who cloned the repo before reading the docs; it routes a cloner through local validation, one public-repo n8n run, a clone-run public receipt, sanitized issue evidence, and public issue forms without requesting secrets, private data, checkout/payment, payout, KYC/tax/bank/contract, DM/email/forms/private outreach, paid ads, or guaranteed ROI claims.
+Confirm `docs/clone-to-first-success.md` remains linked from `README.md` and the GitHub issue chooser before handling visitors who cloned the repo before reading the docs; it routes a cloner through local validation, one public-repo n8n run, a clone-run public receipt, sanitized issue evidence, and public issue forms without requesting secrets, private data, checkout/payment, payout, KYC/tax/bank/contract, DM/email/forms/private outreach, paid ads, or guaranteed ROI claims.
 
 Confirm `workflows/README.md` and `scripts/README.md` remain linked from `README.md` before handling visitors who landed directly on workflow JSON, the workflow folder, or validator scripts from GitHub traffic/search; they route those visitors back to public-only first-run, validation, issue, and contribution paths without requesting secrets, private data, checkout/payment, payout, KYC/tax/bank/contract, DM/email/forms/private outreach, paid ads, or guaranteed ROI claims.
 
@@ -50,10 +50,14 @@ Confirm `docs/upgrade-path-boundary.md`, `docs/full-pack-public-listing.md`, `do
 When answering a public issue, ask only for sanitized details:
 
 - n8n version;
+- source path: cloned repo or release ZIP;
+- local validation result for `python3 scripts/validate_free_lite.py` and `git diff --check`, if they cloned the repo;
 - public test repository, or “private repo tested” without naming it;
 - node name that failed;
 - redacted error text;
-- whether the final `markdown` field appeared.
+- whether the final `markdown` field appeared;
+- sample-output comparison against `samples/sample-output.md`;
+- next safe route requested: setup help, output feedback, template-pack fit, or audit/pilot fit.
 
 Do not request or post tokens, private repository URLs, customer data, production logs, internal screenshots, paid account details, invoices, legal/KYC/tax information, credentials, or exploit details for a real private system. If a reporter needs examples, link them to `docs/public-safe-issue-examples.md`; if they ask what can be shared publicly, link `SECURITY.md`.
 
@@ -63,7 +67,7 @@ Before a release or public support reply, confirm:
 
 - `SECURITY.md` is present and linked from `README.md`;
 - the four issue forms linked from `README.md` are present under `.github/ISSUE_TEMPLATE/` and keep blank issues disabled;
-- the GitHub issue chooser contact links point visitors to `docs/free-lite-download-first-run-guide.md`, `docs/public-inquiry-router.md`, `docs/public-sample-output-next-steps.md`, and `SECURITY.md` before they choose a form;
+- the GitHub issue chooser contact links point visitors to `docs/clone-to-first-success.md`, `docs/free-lite-download-first-run-guide.md`, `docs/public-inquiry-router.md`, `docs/public-sample-output-next-steps.md`, and `SECURITY.md` before they choose a form;
 - the GitHub issue chooser also links `docs/public-safe-issue-examples.md` so visitors can copy a sanitized setup, feedback, template-pack, or audit/pilot example before posting;
 - issue replies ask for sanitized symptoms only, not secrets or private repo details;
 - any security-sensitive finding is reproducible on `n8n-io/n8n` or a synthetic sample before it is discussed publicly;

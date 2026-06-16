@@ -7,6 +7,8 @@ body:
     attributes:
       value: |
         Please keep feedback sanitized and public-safe. Do not include tokens, private repository names, customer data, internal incidents, production logs, credentials, paid account details, legal/KYC/tax details, or confidential workflow exports.
+
+        If you cloned the repo before giving feedback, use `docs/clone-to-first-success.md` first and summarize only the public-safe clone-run public receipt: local validation result, public test repository or redacted data boundary, whether the final `markdown` field appeared, sample-output comparison, and next safe route. Do not include checkout/payment details, payout/wallet/bank/Stripe details, tax/KYC/contract details, DM/email/forms, private outreach, paid ads, or guaranteed ROI assumptions.
   - type: dropdown
     id: outcome
     attributes:
@@ -45,10 +47,16 @@ body:
       label: Public-safe context
       description: "Describe team size/use case at a high level only. No company-private details."
       placeholder: "Small OSS repo, weekly maintainer update, public GitHub activity only."
+  - type: textarea
+    id: clone-run-public-receipt
+    attributes:
+      label: Clone-run public receipt, if applicable
+      description: "Optional. Copy only sanitized details from docs/clone-to-first-success.md: local validation, public test repository or redacted data boundary, final markdown field, sample-output comparison, and next safe route."
+      placeholder: "Local validation passed; public test repository n8n-io/n8n; final markdown field appeared; sample-output comparison partially matches; next safe route: output feedback."
   - type: checkboxes
     id: safety-confirmation
     attributes:
       label: Public-safety confirmation
       options:
-        - label: "I removed secrets, private repo names, customer data, production logs, credentials, and paid account/KYC/tax details from this issue."
+        - label: "I removed secrets, private repo names, customer data, production logs, credentials, checkout/payment details, payout/wallet/bank/Stripe details, tax/KYC/contract details, DM/email/forms/private outreach requests, paid ads instructions, and guaranteed ROI claims from this issue."
           required: true
