@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW_PATH = ROOT / "workflows" / "free-lite-github-weekly-snapshot.json"
 WORKFLOW_LANDING_PATH = ROOT / "workflows" / "README.md"
 SCRIPTS_LANDING_PATH = ROOT / "scripts" / "README.md"
+CLONE_RECEIPT_HELPER_PATH = ROOT / "scripts" / "clone_run_receipt.py"
 ISSUE_TEMPLATE_DIR = ROOT / ".github" / "ISSUE_TEMPLATE"
 ISSUE_TEMPLATE_CONFIG_PATH = ISSUE_TEMPLATE_DIR / "config.yml"
 TROUBLESHOOTING_FAQ_PATH = ROOT / "docs" / "free-lite-troubleshooting-faq.md"
@@ -114,6 +115,8 @@ def main() -> None:
         fail("missing traffic-aware workflow landing guide")
     if not SCRIPTS_LANDING_PATH.exists():
         fail("missing traffic-aware scripts landing guide")
+    if not CLONE_RECEIPT_HELPER_PATH.exists():
+        fail("missing clone-run public receipt helper")
     if not DOWNLOAD_FIRST_RUN_GUIDE_PATH.exists():
         fail("missing public-safe download-to-first-run guide")
     if not CLONE_FIRST_SUCCESS_PATH.exists():
@@ -201,9 +204,13 @@ def main() -> None:
     scripts_landing_required_markers = (
         "public-safety validator",
         "python3 scripts/validate_free_lite.py",
+        "clone_run_receipt.py",
+        "python3 scripts/clone_run_receipt.py",
+        "clone-run public receipt",
         "git diff --check",
         "contributing.md",
         "docs/public-release-checks.md",
+        "docs/clone-to-first-success.md",
         "docs/public-inquiry-router.md",
         "free-lite-setup.yml",
         "free-lite-feedback.yml",
@@ -262,6 +269,7 @@ def main() -> None:
     clone_first_success_required_markers = (
         "public-only",
         "python3 scripts/validate_free_lite.py",
+        "python3 scripts/clone_run_receipt.py",
         "git diff --check",
         "workflows/free-lite-github-weekly-snapshot.json",
         "samples/sample-output.md",
@@ -272,6 +280,7 @@ def main() -> None:
         "docs/public-inquiry-router.md",
         "docs/public-safe-issue-examples.md",
         "clone-run public receipt",
+        "clone_run_receipt.py",
         "n8n version",
         "public test repository",
         "redacted error text",
@@ -695,6 +704,8 @@ def main() -> None:
                 fail(f"{label} is missing the clone-to-first-success guide link")
             if "clone-run public receipt" not in text:
                 fail(f"{label} is missing the clone-run public receipt marker")
+            if "scripts/clone_run_receipt.py" not in text and "clone_run_receipt.py" not in text:
+                fail(f"{label} is missing the clone-run receipt helper link")
         if "docs/public-safe-issue-examples.md" not in text and "public-safe-issue-examples.md" not in text:
             fail(f"{label} is missing the public-safe issue examples link")
         if "docs/public-sample-output-next-steps.md" not in text and "public-sample-output-next-steps.md" not in text:
@@ -708,10 +719,14 @@ def main() -> None:
         fail("README.md is missing the traffic-aware workflow landing guide link")
     if "scripts/readme.md" not in readme_text:
         fail("README.md is missing the traffic-aware scripts landing guide link")
+    if "scripts/clone_run_receipt.py" not in readme_text:
+        fail("README.md is missing the clone-run receipt helper link")
     if "contributing.md" not in release_checks_text:
         fail("docs/public-release-checks.md is missing the public-safe contribution guide check")
     if "workflows/readme.md" not in release_checks_text or "scripts/readme.md" not in release_checks_text:
         fail("docs/public-release-checks.md is missing traffic-aware landing guide checks")
+    if "scripts/clone_run_receipt.py" not in release_checks_text:
+        fail("docs/public-release-checks.md is missing the clone-run receipt helper check")
     readme_path_router_required_markers = (
         "choose your next safe path",
         "public-only",

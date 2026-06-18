@@ -12,6 +12,14 @@ Use this public-only guide if you cloned the repository instead of downloading t
    git diff --check
    ```
 
+   Optional: prefill the local-validation part of the clone-run public receipt with the local-only helper:
+
+   ```bash
+   python3 scripts/clone_run_receipt.py
+   ```
+
+   This helper runs only local checks, prints a public-safe receipt skeleton, and does not need secrets, network access, private repository data, checkout/payment setup, payout/wallet/bank/Stripe details, tax/KYC/contract details, DM/email/forms, private outreach, paid ads, or guaranteed ROI assumptions.
+
 3. Open `workflows/free-lite-github-weekly-snapshot.json` and import it into your own n8n instance.
 4. For the first run, use a public repository such as `n8n-io/n8n` and leave `GITHUB_TOKEN` blank unless you need higher public API rate limits.
 5. Confirm the final node returns a `markdown` field.
@@ -21,7 +29,7 @@ Use this public-only guide if you cloned the repository instead of downloading t
 
 ## Clone-run public receipt
 
-Copy only this public-safe receipt into a setup or feedback issue after your local check. Replace anything private with `redacted` or `public repo only`.
+Copy only this public-safe receipt into a setup or feedback issue after your local check. Replace anything private with `redacted` or `public repo only`. If you use `python3 scripts/clone_run_receipt.py`, review the generated skeleton before posting and add only public-safe n8n/import results.
 
 ```markdown
 ### Clone-run public receipt
