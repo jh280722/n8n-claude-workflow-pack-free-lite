@@ -16,6 +16,7 @@ WORKFLOW_PATH = ROOT / "workflows" / "free-lite-github-weekly-snapshot.json"
 WORKFLOW_LANDING_PATH = ROOT / "workflows" / "README.md"
 SCRIPTS_LANDING_PATH = ROOT / "scripts" / "README.md"
 CLONE_RECEIPT_HELPER_PATH = ROOT / "scripts" / "clone_run_receipt.py"
+QUICKSTART_PATH = ROOT / "QUICKSTART.md"
 ISSUE_TEMPLATE_DIR = ROOT / ".github" / "ISSUE_TEMPLATE"
 ISSUE_TEMPLATE_CONFIG_PATH = ISSUE_TEMPLATE_DIR / "config.yml"
 TROUBLESHOOTING_FAQ_PATH = ROOT / "docs" / "free-lite-troubleshooting-faq.md"
@@ -117,6 +118,8 @@ def main() -> None:
         fail("missing traffic-aware scripts landing guide")
     if not CLONE_RECEIPT_HELPER_PATH.exists():
         fail("missing clone-run public receipt helper")
+    if not QUICKSTART_PATH.exists():
+        fail("missing top-level clone-first quickstart")
     if not DOWNLOAD_FIRST_RUN_GUIDE_PATH.exists():
         fail("missing public-safe download-to-first-run guide")
     if not CLONE_FIRST_SUCCESS_PATH.exists():
@@ -233,6 +236,47 @@ def main() -> None:
         fail(
             "traffic-aware scripts landing guide is missing marker(s): "
             f"{', '.join(missing_scripts_landing_markers)}"
+        )
+
+    quickstart_text = QUICKSTART_PATH.read_text(encoding="utf-8").lower()
+    quickstart_required_markers = (
+        "public-only",
+        "python3 scripts/validate_free_lite.py",
+        "git diff --check",
+        "python3 scripts/clone_run_receipt.py",
+        "workflows/free-lite-github-weekly-snapshot.json",
+        "samples/sample-output.md",
+        "docs/free-lite-output-review-guide.md",
+        "docs/free-lite-import-checklist.md",
+        "docs/free-lite-troubleshooting-faq.md",
+        "docs/public-sample-output-next-steps.md",
+        "docs/public-implementation-scope-menu.md",
+        "docs/public-safe-onboarding-playbook.md",
+        "docs/public-inquiry-router.md",
+        "docs/public-safe-issue-examples.md",
+        "free-lite-setup.yml",
+        "free-lite-feedback.yml",
+        "workflow-pack-inquiry.yml",
+        "audit-pilot-inquiry.yml",
+        "tokens",
+        "credentials",
+        "private repository urls",
+        "customer data",
+        "checkout/payment",
+        "payout/wallet/bank/stripe",
+        "tax/kyc/contract",
+        "dm/email/forms",
+        "private outreach",
+        "paid ads",
+        "guaranteed roi",
+    )
+    missing_quickstart_markers = [
+        marker for marker in quickstart_required_markers if marker not in quickstart_text
+    ]
+    if missing_quickstart_markers:
+        fail(
+            "top-level clone-first quickstart is missing marker(s): "
+            f"{', '.join(missing_quickstart_markers)}"
         )
 
     download_first_run_guide_text = DOWNLOAD_FIRST_RUN_GUIDE_PATH.read_text(encoding="utf-8").lower()
@@ -700,6 +744,8 @@ def main() -> None:
         if "docs/free-lite-download-first-run-guide.md" not in text and "free-lite-download-first-run-guide.md" not in text:
             fail(f"{label} is missing the download-to-first-run guide link")
         if label in {"README.md", "docs/public-release-checks.md"}:
+            if "quickstart.md" not in text:
+                fail(f"{label} is missing the top-level clone-first quickstart link")
             if "docs/clone-to-first-success.md" not in text and "clone-to-first-success.md" not in text:
                 fail(f"{label} is missing the clone-to-first-success guide link")
             if "clone-run public receipt" not in text:
@@ -721,12 +767,16 @@ def main() -> None:
         fail("README.md is missing the traffic-aware scripts landing guide link")
     if "scripts/clone_run_receipt.py" not in readme_text:
         fail("README.md is missing the clone-run receipt helper link")
+    if "quickstart.md" not in readme_text:
+        fail("README.md is missing the top-level clone-first quickstart link")
     if "contributing.md" not in release_checks_text:
         fail("docs/public-release-checks.md is missing the public-safe contribution guide check")
     if "workflows/readme.md" not in release_checks_text or "scripts/readme.md" not in release_checks_text:
         fail("docs/public-release-checks.md is missing traffic-aware landing guide checks")
     if "scripts/clone_run_receipt.py" not in release_checks_text:
         fail("docs/public-release-checks.md is missing the clone-run receipt helper check")
+    if "quickstart.md" not in release_checks_text:
+        fail("docs/public-release-checks.md is missing the top-level clone-first quickstart check")
     readme_path_router_required_markers = (
         "choose your next safe path",
         "public-only",
