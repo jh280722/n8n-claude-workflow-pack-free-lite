@@ -23,6 +23,25 @@ SAFETY_REMINDER = (
     "guaranteed ROI assumptions."
 )
 
+NEXT_PUBLIC_ROUTES = (
+    (
+        "Free Lite setup question",
+        "https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=free-lite-setup.yml",
+    ),
+    (
+        "Free Lite feedback / integration request",
+        "https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=free-lite-feedback.yml",
+    ),
+    (
+        "Template/customization inquiry",
+        "https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=workflow-pack-inquiry.yml",
+    ),
+    (
+        "Workflow audit / pilot inquiry",
+        "https://github.com/jh280722/n8n-claude-workflow-pack-free-lite/issues/new?template=audit-pilot-inquiry.yml",
+    ),
+)
+
 
 def run_check(command: list[str]) -> tuple[str, str]:
     """Run a local check and return (status, compact_output)."""
@@ -71,6 +90,12 @@ def build_receipt(args: argparse.Namespace, validator_status: str, diff_status: 
 """
 
 
+def build_route_block() -> str:
+    lines = ["### Next public issue routes"]
+    lines.extend(f"- {label}: {url}" for label, url in NEXT_PUBLIC_ROUTES)
+    return "\n".join(lines)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Run local Free Lite checks and print a public-safe clone-run receipt skeleton."
@@ -99,6 +124,7 @@ def main() -> int:
     print("### Local check output")
     print(f"- Validator: {validator_status} — {validator_output}")
     print(f"- Whitespace diff check: {diff_status} — {diff_output}")
+    print(f"\n{build_route_block()}")
     print(f"\nSafety reminder: {SAFETY_REMINDER}")
 
     return 0 if validator_status == "passed" and diff_status == "passed" else 1

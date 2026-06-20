@@ -238,6 +238,33 @@ def main() -> None:
             f"{', '.join(missing_scripts_landing_markers)}"
         )
 
+    clone_receipt_helper_text = CLONE_RECEIPT_HELPER_PATH.read_text(encoding="utf-8").lower()
+    clone_receipt_helper_required_markers = (
+        "next public issue routes",
+        "free-lite-setup.yml",
+        "free-lite-feedback.yml",
+        "workflow-pack-inquiry.yml",
+        "audit-pilot-inquiry.yml",
+        "tokens",
+        "credentials",
+        "private repository urls",
+        "customer data",
+        "checkout/payment",
+        "payout/wallet/bank/stripe",
+        "tax/kyc/contract",
+        "dm/email/forms/private outreach",
+        "paid ads",
+        "guaranteed roi",
+    )
+    missing_clone_receipt_helper_markers = [
+        marker for marker in clone_receipt_helper_required_markers if marker not in clone_receipt_helper_text
+    ]
+    if missing_clone_receipt_helper_markers:
+        fail(
+            "clone-run receipt helper is missing public-route/safety marker(s): "
+            f"{', '.join(missing_clone_receipt_helper_markers)}"
+        )
+
     quickstart_text = QUICKSTART_PATH.read_text(encoding="utf-8").lower()
     quickstart_required_markers = (
         "public-only",

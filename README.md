@@ -55,7 +55,7 @@ Public issues should stay public-only: do not post tokens, credentials, private 
 - Download-to-first-run guide for release ZIP users: `docs/free-lite-download-first-run-guide.md`
 - Top-level clone-first quickstart for offline cloners: `QUICKSTART.md`
 - Clone-to-first-success guide and clone-run public receipt for visitors who clone before reading docs: `docs/clone-to-first-success.md`
-- Local clone-run receipt helper for cloners who want a prefilled public-safe issue block: `scripts/clone_run_receipt.py`
+- Local clone-run receipt helper for cloners who want a prefilled public-safe issue block plus direct public issue routes: `scripts/clone_run_receipt.py`
 - Local validation preflight: `docs/free-lite-validation-preflight.md`
 - Traffic-aware scripts landing guide for validator visitors: `scripts/README.md`
 - Copyable sanitized issue examples: `docs/public-safe-issue-examples.md`
@@ -89,7 +89,7 @@ Public issues should stay public-only: do not post tokens, credentials, private 
 3. Run the workflow manually and inspect the `markdown` field in the final node.
 4. For a safer first pass, follow the 10-minute public demo runbook in `docs/free-lite-demo-runbook.md`.
 5. If you downloaded the release ZIP, use `docs/free-lite-download-first-run-guide.md` to get from local unzip to one safe public-repo run without posting private data.
-6. If you cloned the repo first, start with the top-level `QUICKSTART.md` for the shortest offline path, then use `docs/clone-to-first-success.md` to validate locally, reach one safe public-repo run, and fill a clone-run public receipt before opening an issue. You can also run `python3 scripts/clone_run_receipt.py` to prefill the local validation part of that public-safe receipt before adding n8n/import results.
+6. If you cloned the repo first, start with the top-level `QUICKSTART.md` for the shortest offline path, then use `docs/clone-to-first-success.md` to validate locally, reach one safe public-repo run, and fill a clone-run public receipt before opening an issue. You can also run `python3 scripts/clone_run_receipt.py` to prefill the validation lines locally and print the direct public issue routes before adding n8n/import results.
 7. Compare the result with `samples/sample-output.md` and the output review guide in `docs/free-lite-output-review-guide.md` before opening a public issue.
 8. If import or execution fails, use the 5-minute checklist in `docs/free-lite-import-checklist.md` and the troubleshooting FAQ in `docs/free-lite-troubleshooting-faq.md` before opening a public issue.
 
@@ -114,7 +114,7 @@ The local validation preflight in `docs/free-lite-validation-preflight.md` expan
 
 The validator checks that the workflow JSON is parseable, still includes the expected read-only GitHub snapshot nodes, keeps `GITHUB_TOKEN` optional, and does not contain common posting/mutating integrations or secret-like markers.
 
-Before tagging a release or responding to public setup reports, also use the manual release/support checklist in `docs/public-release-checks.md`. For a public-safe first-run walkthrough, see `docs/free-lite-demo-runbook.md`; if the user downloaded the release ZIP, use `docs/free-lite-download-first-run-guide.md` to route them from local unzip to one safe public-repo run; if they cloned the repo first, use `QUICKSTART.md` for the shortest offline path and `docs/clone-to-first-success.md` to route them from local validation to one safe public-repo run and clone-run public receipt, or `python3 scripts/clone_run_receipt.py` to prefill the validation lines locally. For copyable examples of safe public issue content, see `docs/public-safe-issue-examples.md`; for common import/API/output failures, see `docs/free-lite-troubleshooting-faq.md`; for deciding whether the generated Markdown is useful enough to keep or customize, see `docs/free-lite-output-review-guide.md` and `docs/public-sample-output-next-steps.md`.
+Before tagging a release or responding to public setup reports, also use the manual release/support checklist in `docs/public-release-checks.md`. For a public-safe first-run walkthrough, see `docs/free-lite-demo-runbook.md`; if the user downloaded the release ZIP, use `docs/free-lite-download-first-run-guide.md` to route them from local unzip to one safe public-repo run; if they cloned the repo first, use `QUICKSTART.md` for the shortest offline path and `docs/clone-to-first-success.md` to route them from local validation to one safe public-repo run and clone-run public receipt, or `python3 scripts/clone_run_receipt.py` to prefill the validation lines locally and print direct setup/feedback/template/audit issue routes. For copyable examples of safe public issue content, see `docs/public-safe-issue-examples.md`; for common import/API/output failures, see `docs/free-lite-troubleshooting-faq.md`; for deciding whether the generated Markdown is useful enough to keep or customize, see `docs/free-lite-output-review-guide.md` and `docs/public-sample-output-next-steps.md`.
 
 ## Full pack / paid help
 
