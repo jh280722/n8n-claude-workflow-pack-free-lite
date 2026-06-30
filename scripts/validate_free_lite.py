@@ -804,6 +804,10 @@ def main() -> None:
         fail("docs/public-release-checks.md is missing the clone-run receipt helper check")
     if "quickstart.md" not in release_checks_text:
         fail("docs/public-release-checks.md is missing the top-level clone-first quickstart check")
+    if "github actions" not in readme_text or "local validation route" not in readme_text:
+        fail("README.md is missing the GitHub Actions local-validation route")
+    if "github actions" not in release_checks_text or "local validation" not in release_checks_text:
+        fail("docs/public-release-checks.md is missing the GitHub Actions local-validation route")
     readme_path_router_required_markers = (
         "choose your next safe path",
         "public-only",

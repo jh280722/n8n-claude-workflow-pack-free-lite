@@ -20,6 +20,8 @@ This confirms the workflow JSON parses, still includes the read-only GitHub snap
 
 Also run the local preflight in `docs/free-lite-validation-preflight.md` before release/support decisions; it adds `git diff --check`, public-safe screenshot/example checks, and issue-response hygiene.
 
+If a visitor lands on the GitHub Actions tab, route them to local validation instead of asking for private data: have them run `python3 scripts/validate_free_lite.py` and `git diff --check`, then share only public-safe setup or feedback details after removing tokens, credentials, private repository URLs, customer data, checkout/payment details, payout/wallet/bank/Stripe details, tax/KYC/contract details, DM/email/forms/private outreach, paid ads, and guaranteed ROI assumptions.
+
 Confirm the troubleshooting FAQ in `docs/free-lite-troubleshooting-faq.md` remains linked from `README.md` before replying to setup issues; it keeps common import/API/output debugging public-safe.
 
 Confirm `CONTRIBUTING.md` remains linked from `README.md` before inviting public issues, pull requests, examples, or validator changes; it keeps contributor guidance public-only and blocks tokens, credentials, private repository URLs, customer data, checkout/payment details, tax/KYC/contract details, DM/email/forms, private outreach, paid ads, and guaranteed ROI claims.
